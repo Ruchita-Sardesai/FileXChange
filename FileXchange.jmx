@@ -125,9 +125,89 @@
             <stringProp name="Argument.value">----------------------------------------------------</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="output-file-fields" elementType="Argument">
-            <stringProp name="Argument.name">output-file-fields</stringProp>
-            <stringProp name="Argument.value">outputfilefields</stringProp>
+          <elementProp name="output file fields" elementType="Argument">
+            <stringProp name="Argument.name">output file fields</stringProp>
+            <stringProp name="Argument.value">output-file-fields</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="desc" elementType="Argument">
+            <stringProp name="Argument.name">desc</stringProp>
+            <stringProp name="Argument.value">Description for the Create Output File</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="invalid" elementType="Argument">
+            <stringProp name="Argument.name">invalid</stringProp>
+            <stringProp name="Argument.value">@!#$@%$@#^$%$&amp;%^*&gt;SA&lt;&quot;~{!}@{ &quot;?!@&gt;!&quot;#!@}$#{@!|$}#@%$_+&amp;%)^*&amp;^*%?&lt;?&lt;@:&quot;!~@~!|@}!@|@_#%#$)^+$%}&amp;dfnkvnfxknvfs,bs,ac</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables for O/P file" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="Profiles" elementType="Argument">
+            <stringProp name="Argument.name">Profiles</stringProp>
+            <stringProp name="Argument.value">/api/v1/profiles</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Outputfiletype" elementType="Argument">
+            <stringProp name="Argument.name">Outputfiletype</stringProp>
+            <stringProp name="Argument.value">/api/v1/output-file-types</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Inputfiletype" elementType="Argument">
+            <stringProp name="Argument.name">Inputfiletype</stringProp>
+            <stringProp name="Argument.value">/api/v1/inputfiles</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Delimiters" elementType="Argument">
+            <stringProp name="Argument.name">Delimiters</stringProp>
+            <stringProp name="Argument.value">/api/v1/delimiters</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Escapechar" elementType="Argument">
+            <stringProp name="Argument.name">Escapechar</stringProp>
+            <stringProp name="Argument.value">/api/v1/escape-characters</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Dateformat" elementType="Argument">
+            <stringProp name="Argument.name">Dateformat</stringProp>
+            <stringProp name="Argument.value">/api/v1/date-formats</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Datatype" elementType="Argument">
+            <stringProp name="Argument.name">Datatype</stringProp>
+            <stringProp name="Argument.value">/api/v1/data-types</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="output file fields" elementType="Argument">
+            <stringProp name="Argument.name">output file fields</stringProp>
+            <stringProp name="Argument.value">output-file-fields</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Response200" elementType="Argument">
+            <stringProp name="Argument.name">Response200</stringProp>
+            <stringProp name="Argument.value">200</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Response201" elementType="Argument">
+            <stringProp name="Argument.name">Response201</stringProp>
+            <stringProp name="Argument.value">201</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="desc" elementType="Argument">
+            <stringProp name="Argument.name">desc</stringProp>
+            <stringProp name="Argument.value">Description for the Create Output File</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="invalid" elementType="Argument">
+            <stringProp name="Argument.name">invalid</stringProp>
+            <stringProp name="Argument.value">@!#$@%$@#^$%$&amp;%^*&gt;SA&lt;&quot;~{!}@{ &quot;?!@&gt;!&quot;#!@}$#{@!|$}#@%$_+&amp;%)^*&amp;^*%?&lt;?&lt;@:&quot;!~@~!|@}!@|@_#%#$)^+$%}&amp;dfnkvnfxknvfs,bs,ac</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Response400" elementType="Argument">
+            <stringProp name="Argument.name">Response400</stringProp>
+            <stringProp name="Argument.value">400</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
