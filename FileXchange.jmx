@@ -1875,7 +1875,7 @@
             </elementProp>
             <elementProp name="FilePath" elementType="Argument">
               <stringProp name="Argument.name">FilePath</stringProp>
-              <stringProp name="Argument.value">regal.csv</stringProp>
+              <stringProp name="Argument.value">/regal.csv</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
