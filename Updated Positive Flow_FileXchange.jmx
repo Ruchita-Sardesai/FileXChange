@@ -308,22 +308,6 @@
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
-            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-            <stringProp name="RegexExtractor.refname">InputFileType_ID</stringProp>
-            <stringProp name="RegexExtractor.regex">&quot;id&quot;:(.+?)&quot;*(?=,)</stringProp>
-            <stringProp name="RegexExtractor.template">$1$</stringProp>
-            <stringProp name="RegexExtractor.default">0</stringProp>
-            <stringProp name="RegexExtractor.match_number">1</stringProp>
-          </RegexExtractor>
-          <hashTree/>
-          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="true">
-            <stringProp name="BeanShellAssertion.query">${__setProperty(InputFileType_ID, ${InputFileType_ID})};</stringProp>
-            <stringProp name="BeanShellAssertion.filename"></stringProp>
-            <stringProp name="BeanShellAssertion.parameters"></stringProp>
-            <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
-          </BeanShellAssertion>
-          <hashTree/>
         </hashTree>
         <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="GET particular Input File Type" enabled="false">
           <stringProp name="cacheKey">true</stringProp>
@@ -372,22 +356,6 @@
               </elementProp>
             </collectionProp>
           </HeaderManager>
-          <hashTree/>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
-            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-            <stringProp name="RegexExtractor.refname">InputFileType_ID</stringProp>
-            <stringProp name="RegexExtractor.regex">&quot;id&quot;:(.+?)&quot;*(?=,)</stringProp>
-            <stringProp name="RegexExtractor.template">$1$</stringProp>
-            <stringProp name="RegexExtractor.default">0</stringProp>
-            <stringProp name="RegexExtractor.match_number">1</stringProp>
-          </RegexExtractor>
-          <hashTree/>
-          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="true">
-            <stringProp name="BeanShellAssertion.query">${__setProperty(InputFileType_ID, ${InputFileType_ID})};</stringProp>
-            <stringProp name="BeanShellAssertion.filename"></stringProp>
-            <stringProp name="BeanShellAssertion.parameters"></stringProp>
-            <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
-          </BeanShellAssertion>
           <hashTree/>
         </hashTree>
       </hashTree>
@@ -1867,7 +1835,7 @@ else {
           <stringProp name="variableNames"></stringProp>
         </JDBCSampler>
         <hashTree>
-          <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="Fetch InputfileFields Details" enabled="true">
+          <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="Fetch OutputfileFields Details" enabled="true">
             <stringProp name="dataSource">Test1</stringProp>
             <stringProp name="poolMax">0</stringProp>
             <stringProp name="timeout">10000</stringProp>
@@ -1884,7 +1852,7 @@ else {
             <stringProp name="password">Regal123</stringProp>
           </JDBCDataSource>
           <hashTree/>
-          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion for fetching InputID" enabled="true">
+          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion for fetching OutputID" enabled="true">
             <stringProp name="BeanShellAssertion.query">if(ResponseCode.equals(&quot;200&quot;)) 
 {
 
