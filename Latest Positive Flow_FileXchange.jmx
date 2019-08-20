@@ -165,11 +165,6 @@
             <stringProp name="Argument.value">false</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="ProfileID" elementType="Argument">
-            <stringProp name="Argument.name">ProfileID</stringProp>
-            <stringProp name="Argument.value">99b95bd7-5d50-4c22-a614-f74ceee0009d</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -308,7 +303,7 @@
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Token Extractor" enabled="true">
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
             <stringProp name="RegexExtractor.useHeaders">false</stringProp>
             <stringProp name="RegexExtractor.refname">InputFileType_ID</stringProp>
             <stringProp name="RegexExtractor.regex">&quot;id&quot;: (.+?)&quot;*(?=,)</stringProp>
@@ -316,13 +311,6 @@
             <stringProp name="RegexExtractor.default">0</stringProp>
             <stringProp name="RegexExtractor.match_number">1</stringProp>
           </RegexExtractor>
-          <hashTree/>
-          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="true">
-            <stringProp name="BeanShellAssertion.query">${__setProperty(InputFileType_ID, ${InputFileType_ID})};</stringProp>
-            <stringProp name="BeanShellAssertion.filename"></stringProp>
-            <stringProp name="BeanShellAssertion.parameters"></stringProp>
-            <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
-          </BeanShellAssertion>
           <hashTree/>
         </hashTree>
         <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="GET particular Input File Type" enabled="false">
@@ -716,8 +704,8 @@
           <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
             <stringProp name="variableName">Updated_OutputFile_name</stringProp>
             <stringProp name="outputFormat"></stringProp>
-            <stringProp name="minimumValue">11111111111</stringProp>
-            <stringProp name="maximumValue">99999999999</stringProp>
+            <stringProp name="minimumValue">11111</stringProp>
+            <stringProp name="maximumValue">99999</stringProp>
             <stringProp name="randomSeed"></stringProp>
             <boolProp name="perThread">false</boolProp>
           </RandomVariableConfig>
@@ -906,22 +894,22 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="Order_ID" elementType="Argument">
               <stringProp name="Argument.name">Order_ID</stringProp>
-              <stringProp name="Argument.value">8</stringProp>
+              <stringProp name="Argument.value">9</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="isMand" elementType="Argument">
               <stringProp name="Argument.name">isMand</stringProp>
-              <stringProp name="Argument.value">true</stringProp>
+              <stringProp name="Argument.value">false</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="Length" elementType="Argument">
               <stringProp name="Argument.name">Length</stringProp>
-              <stringProp name="Argument.value">10</stringProp>
+              <stringProp name="Argument.value">20</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="types" elementType="Argument">
               <stringProp name="Argument.name">types</stringProp>
-              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.value">3</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="custV" elementType="Argument">
@@ -939,8 +927,13 @@
               <stringProp name="Argument.value">/regal.csv</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
-            <elementProp name="FxdWidth" elementType="Argument">
-              <stringProp name="Argument.name">FxdWidth</stringProp>
+            <elementProp name="Update_Name" elementType="Argument">
+              <stringProp name="Argument.name">Update_Name</stringProp>
+              <stringProp name="Argument.value">Additional_data</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="FxdWidth_" elementType="Argument">
+              <stringProp name="Argument.name">FxdWidth_</stringProp>
               <stringProp name="Argument.value">false</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
@@ -967,14 +960,14 @@ try {
      f = new FileOutputStream(path+vars.get(&quot;FilePath&quot;), false); 
      p = new PrintStream(f); 
      this.interpreter.setOut(p); 
-     print(&quot;Issue_Type&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot; );
-     print(&quot;Routing_Number&quot;+&quot;,&quot;+&quot;2&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;9&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot; );
-     print(&quot;Account_Number&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;10&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;false&quot;);
-     print(&quot;Date&quot;+&quot;,&quot;+&quot;4&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;10&quot;+&quot;,&quot;+&quot;2&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);
-     print(&quot;Check&quot;+&quot;,&quot;+&quot;5&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;10&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;);
-     print(&quot;Amount&quot;+&quot;,&quot;+&quot;6&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;9&quot;+&quot;,&quot;+&quot;4&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot;);
-     print(&quot;Payee_name&quot;+&quot;,&quot;+&quot;7&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;20&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);
-     print(&quot;Notes&quot;+&quot;,&quot;+&quot;8&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;20&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;);
+     print(&quot;Record_Type&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot; +&quot;,&quot;+&quot;false&quot;);
+     print(&quot;Routing_Number&quot;+&quot;,&quot;+&quot;2&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;9&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot; +&quot;,&quot;+&quot;true&quot;);
+     print(&quot;Account_Number&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;10&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;false&quot;);
+     print(&quot;Check_Number&quot;+&quot;,&quot;+&quot;4&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;10&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);
+     print(&quot;Amount&quot;+&quot;,&quot;+&quot;5&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;9&quot;+&quot;,&quot;+&quot;4&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;);
+     print(&quot;Issue_Date&quot;+&quot;,&quot;+&quot;6&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;10&quot;+&quot;,&quot;+&quot;2&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;);
+     print(&quot;Payee_name&quot;+&quot;,&quot;+&quot;7&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;20&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;false&quot;);
+     print(&quot;Notes&quot;+&quot;,&quot;+&quot;8&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;20&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);
      
      f.close();
 
@@ -990,7 +983,7 @@ catch (Throwable ex) {
         <hashTree/>
         <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller for creating multiple fields " enabled="true">
           <boolProp name="LoopController.continue_forever">true</boolProp>
-          <stringProp name="LoopController.loops">7</stringProp>
+          <stringProp name="LoopController.loops">8</stringProp>
         </LoopController>
         <hashTree>
           <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
@@ -1002,7 +995,7 @@ catch (Throwable ex) {
             <boolProp name="recycle">false</boolProp>
             <stringProp name="shareMode">shareMode.thread</stringProp>
             <boolProp name="stopThread">true</boolProp>
-            <stringProp name="variableNames">name,order_ID,Mandatory,length,type,custV,defV</stringProp>
+            <stringProp name="variableNames">name,order_ID,Mandatory,length,type,custV,defV,fxdwidth</stringProp>
           </CSVDataSet>
           <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify User is able to CREATE Output file Field " enabled="true">
@@ -1019,8 +1012,8 @@ catch (Throwable ex) {
   &quot;type&quot;: ${type},&#xd;
   &quot;isCustomValueAllowed&quot;: ${custV},&#xd;
   &quot;isDefaultValueAllowed&quot;: ${defV},&#xd;
-  &quot;dateFormatId&quot;: 1,&#xd;
-  &quot;isFixedWidth&quot;: false&#xd;
+   &quot;DateFormatId&quot;:1,&#xd;
+  &quot;isFixedWidth&quot;: ${fxdwidth}&#xd;
 }</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
@@ -1100,14 +1093,14 @@ catch (Throwable ex) {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-          &quot;name&quot;:&quot;Notes${FieldName}&quot;,&#xd;
+          &quot;name&quot;:&quot;${Update_Name}&quot;,&#xd;
           &quot;Order&quot;:&quot;${Order_ID}&quot;,&#xd;
           &quot;IsMandatory&quot;:&quot;${isMand}&quot;,&#xd;
           &quot;MaxLength&quot;:${Length},&#xd;
           &quot;Type&quot;:${types},&#xd;
           &quot;IsCustomValueAllowed&quot;:${custV},&#xd;
           &quot;IsDefaultValueAllowed&quot;:${defV},&#xd;
-          &quot;isFixedWidth&quot;: ${FxdWidth}&#xd;
+          &quot;isFixedWidth&quot;: ${FxdWidth_}&#xd;
         } </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1148,15 +1141,6 @@ catch (Throwable ex) {
               </elementProp>
             </collectionProp>
           </HeaderManager>
-          <hashTree/>
-          <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
-            <stringProp name="variableName">FieldName</stringProp>
-            <stringProp name="outputFormat"></stringProp>
-            <stringProp name="minimumValue">11111</stringProp>
-            <stringProp name="maximumValue">99999</stringProp>
-            <stringProp name="randomSeed"></stringProp>
-            <boolProp name="perThread">false</boolProp>
-          </RandomVariableConfig>
           <hashTree/>
         </hashTree>
         <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="GET Output File fields" enabled="false">
@@ -2200,7 +2184,7 @@ else {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;defaultValue&quot;: &quot;${UPDefaultMappingName}&quot;,&#xd;
+  &quot;defaultValue&quot;: &quot;${UpdateValue}&quot;,&#xd;
   &quot;isDecimalImplied&quot;: ${false},&#xd;
   &quot;defaultAllToCurrentDate&quot;: ${false},&#xd;
   &quot;defaultToCurrentDateWhenMissing&quot;: ${false},&#xd;
@@ -2247,10 +2231,10 @@ else {
           </HeaderManager>
           <hashTree/>
           <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
-            <stringProp name="variableName">UPDefaultMappingName</stringProp>
+            <stringProp name="variableName">UpdateValue</stringProp>
             <stringProp name="outputFormat"></stringProp>
-            <stringProp name="minimumValue">1</stringProp>
-            <stringProp name="maximumValue">9</stringProp>
+            <stringProp name="minimumValue">11</stringProp>
+            <stringProp name="maximumValue">99</stringProp>
             <stringProp name="randomSeed"></stringProp>
             <boolProp name="perThread">false</boolProp>
           </RandomVariableConfig>
@@ -2366,8 +2350,8 @@ else {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;key&quot;: &quot;${key}&quot;,&#xd;
-  &quot;value&quot;: &quot;${value}&quot;,&#xd;
+  &quot;key&quot;: &quot;${create_key}&quot;,&#xd;
+  &quot;value&quot;: &quot;${create_value}&quot;,&#xd;
   &quot;dateFormat&quot;: &quot;&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2398,6 +2382,15 @@ else {
             <stringProp name="RegexExtractor.match_number">1</stringProp>
           </RegexExtractor>
           <hashTree/>
+          <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
+            <stringProp name="variableName">create_key</stringProp>
+            <stringProp name="outputFormat"></stringProp>
+            <stringProp name="minimumValue">1</stringProp>
+            <stringProp name="maximumValue">9</stringProp>
+            <stringProp name="randomSeed"></stringProp>
+            <boolProp name="perThread">false</boolProp>
+          </RandomVariableConfig>
+          <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="Accept-Language" elementType="Header">
@@ -2420,16 +2413,7 @@ else {
           </HeaderManager>
           <hashTree/>
           <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
-            <stringProp name="variableName">key</stringProp>
-            <stringProp name="outputFormat"></stringProp>
-            <stringProp name="minimumValue">1</stringProp>
-            <stringProp name="maximumValue">6</stringProp>
-            <stringProp name="randomSeed"></stringProp>
-            <boolProp name="perThread">false</boolProp>
-          </RandomVariableConfig>
-          <hashTree/>
-          <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
-            <stringProp name="variableName">value</stringProp>
+            <stringProp name="variableName">create_value</stringProp>
             <stringProp name="outputFormat"></stringProp>
             <stringProp name="minimumValue">1</stringProp>
             <stringProp name="maximumValue">9</stringProp>
@@ -2452,8 +2436,8 @@ else {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;key&quot;: &quot;${key1}&quot;,&#xd;
-  &quot;value&quot;: &quot;${value1}&quot;,&#xd;
+  &quot;key&quot;: &quot;${key}&quot;,&#xd;
+  &quot;value&quot;: &quot;${value}&quot;,&#xd;
   &quot;dateFormat&quot;: &quot;&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2497,19 +2481,19 @@ else {
           </HeaderManager>
           <hashTree/>
           <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
-            <stringProp name="variableName">value1</stringProp>
+            <stringProp name="variableName">value</stringProp>
             <stringProp name="outputFormat"></stringProp>
-            <stringProp name="minimumValue">1</stringProp>
-            <stringProp name="maximumValue">9</stringProp>
+            <stringProp name="minimumValue">11</stringProp>
+            <stringProp name="maximumValue">99</stringProp>
             <stringProp name="randomSeed"></stringProp>
             <boolProp name="perThread">false</boolProp>
           </RandomVariableConfig>
           <hashTree/>
           <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
-            <stringProp name="variableName">key1</stringProp>
+            <stringProp name="variableName">key</stringProp>
             <stringProp name="outputFormat"></stringProp>
-            <stringProp name="minimumValue">1</stringProp>
-            <stringProp name="maximumValue">6</stringProp>
+            <stringProp name="minimumValue">11</stringProp>
+            <stringProp name="maximumValue">99</stringProp>
             <stringProp name="randomSeed"></stringProp>
             <boolProp name="perThread">false</boolProp>
           </RandomVariableConfig>
