@@ -2258,9 +2258,8 @@ catch (Throwable ex) {
                 <stringProp name="Argument.value">{&#xd;
   &quot;defaultValue&quot;: &quot;${DefaultMappingName}&quot;,&#xd;
   &quot;isDecimalImplied&quot;: ${true} ,&#xd;
-  &quot;defaultAllToCurrentDate&quot;: ${false},&#xd;
-  &quot;defaultToCurrentDateWhenMissing&quot;: ${true},&#xd;
-  &quot;dateFormat&quot;: &quot;&quot;&#xd;
+  &quot;defaultToCurrentDate&quot;: ${false},&#xd;
+   &quot;dateFormat&quot;: &quot;&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -2337,9 +2336,8 @@ catch (Throwable ex) {
                 <stringProp name="Argument.value">{&#xd;
   &quot;defaultValue&quot;: &quot;${UpdateValue}&quot;,&#xd;
   &quot;isDecimalImplied&quot;: ${false},&#xd;
-  &quot;defaultAllToCurrentDate&quot;: ${false},&#xd;
-  &quot;defaultToCurrentDateWhenMissing&quot;: ${false},&#xd;
-  &quot;dateFormat&quot;: &quot;&quot;&#xd;
+  &quot;defaultToCurrentDate&quot;: ${false},&#xd;
+   &quot;dateFormat&quot;: &quot;&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
