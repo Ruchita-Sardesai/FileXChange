@@ -165,6 +165,21 @@
             <stringProp name="Argument.value">false</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="FilePath2" elementType="Argument">
+            <stringProp name="Argument.name">FilePath2</stringProp>
+            <stringProp name="Argument.value">/InputFieldIdFile.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="FilePath1" elementType="Argument">
+            <stringProp name="Argument.name">FilePath1</stringProp>
+            <stringProp name="Argument.value">/MappingIdFile.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="FilePath3" elementType="Argument">
+            <stringProp name="Argument.name">FilePath3</stringProp>
+            <stringProp name="Argument.value">/OutputfiledIdFile.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -1683,7 +1698,7 @@ I,,3154456789,2334,11-09-2018,4400,Deo,Test&quot;&#xd;
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Fetch InputfileFields Details from DB" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Fetch MappingID Details from DB" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -1696,20 +1711,20 @@ I,,3154456789,2334,11-09-2018,4400,Deo,Test&quot;&#xd;
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Fetch InputfileFields Details" enabled="true">
-          <stringProp name="dataSource">Test</stringProp>
-          <stringProp name="query">select CAST(Id as INTEGER) AS InputID, * from InputFileFields where ProfileId = &apos;${__property(CommaProfileID)}&apos;</stringProp>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Fetch MappingIDields Details" enabled="true">
+          <stringProp name="dataSource">Test3</stringProp>
+          <stringProp name="query">select CAST(Id as INTEGER) AS MappingID, * from Mappings where ProfileId = &apos;${__property(CommaProfileID)}&apos;</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
           <stringProp name="queryTimeout"></stringProp>
           <stringProp name="queryType">Select Statement</stringProp>
           <stringProp name="resultSetHandler">Store as String</stringProp>
-          <stringProp name="resultVariable">IpId</stringProp>
+          <stringProp name="resultVariable">MapId</stringProp>
           <stringProp name="variableNames"></stringProp>
         </JDBCSampler>
         <hashTree>
           <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="Fetch InputfileFields Details" enabled="true">
-            <stringProp name="dataSource">Test</stringProp>
+            <stringProp name="dataSource">Test3</stringProp>
             <stringProp name="poolMax">0</stringProp>
             <stringProp name="timeout">10000</stringProp>
             <stringProp name="trimInterval">60000</stringProp>
@@ -1725,18 +1740,28 @@ I,,3154456789,2334,11-09-2018,4400,Deo,Test&quot;&#xd;
             <stringProp name="password">Regal123</stringProp>
           </JDBCDataSource>
           <hashTree/>
-          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion for fetching InputID" enabled="true">
-            <stringProp name="BeanShellAssertion.query">if(ResponseCode.equals(&quot;200&quot;)) 
-{
+          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion for fetching Mapping ID" enabled="true">
+            <stringProp name="BeanShellAssertion.query">import org.apache.jmeter.services.FileServer;
 
-	if(vars.getObject(&quot;IpId&quot;).size() != 0)
+try {
+	 String path = FileServer.getFileServer().getBaseDir();
+	f = new FileOutputStream(path+vars.get(&quot;FilePath1&quot;), false); 
+          p = new PrintStream(f);
+          this.interpreter.setOut(p);
+if(ResponseCode.equals(&quot;200&quot;)) 
+{
+          
+for (int i; i &lt;vars.getObject (&quot;MapId&quot;). size (); i ++)
+{
+	if(vars.getObject(&quot;MapId&quot;).size() != 0)
 	{
 
-		String ID = vars.getObject(&quot;IpId&quot;).get(0).get(&quot;InputID&quot;) + &quot;&quot;;
-		vars.put(&quot;InputFieldID&quot;, ID);
+		String MID = vars.getObject(&quot;MapId&quot;).get(i).get(&quot;MappingID&quot;) + &quot;&quot;;
+		vars.put(&quot;MappingID&quot;, MID);
 		
-		log.info(&quot; value of Id :  &quot; + ID);
+		log.info(&quot; value of Id :  &quot; + MID);
 		
+          print(MID);	
 	} 
 	else 
 	{
@@ -1745,6 +1770,7 @@ I,,3154456789,2334,11-09-2018,4400,Deo,Test&quot;&#xd;
 		Failure = true;	
 		prev.setStopThread(true); 
 	}
+}
 }	
 	
 else {
@@ -1752,6 +1778,11 @@ else {
 	FailureMessage = &quot;!!!!!!!!!!!! No connection to the database !!!!!!!!!!!!!&quot;;
 	Failure = true;	
 	prev.setStopThread(true); 
+}
+}
+catch (Throwable ex) {
+    log.error(&quot;Error in beanshell&quot;, ex);
+    throw ex;
 }
 
 
@@ -1813,17 +1844,26 @@ else {
           </JDBCDataSource>
           <hashTree/>
           <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion for fetching OutputID" enabled="true">
-            <stringProp name="BeanShellAssertion.query">if(ResponseCode.equals(&quot;200&quot;)) 
-{
+            <stringProp name="BeanShellAssertion.query">import org.apache.jmeter.services.FileServer;
 
+try {
+	 String path = FileServer.getFileServer().getBaseDir();
+	f = new FileOutputStream(path+vars.get(&quot;FilePath3&quot;), false); 
+          p = new PrintStream(f);
+          this.interpreter.setOut(p);
+if(ResponseCode.equals(&quot;200&quot;)) 
+{
+          
+for (int i; i &lt;vars.getObject (&quot;OpId&quot;). size (); i ++)
+{
 	if(vars.getObject(&quot;OpId&quot;).size() != 0)
 	{
 
-		String ID = vars.getObject(&quot;OpId&quot;).get(0).get(&quot;OutputFileField&quot;) + &quot;&quot;;
-		vars.put(&quot;OutPutFileFieldID&quot;, ID);
+		String OID = vars.getObject(&quot;OpId&quot;).get(i).get(&quot;OutputFileField&quot;) + &quot;&quot;;
+		vars.put(&quot;OutPutFileFieldID&quot;, OID);
 		
-		log.info(&quot; value of OPId :  &quot; + ID);
-		
+		log.info(&quot; value of OPId :  &quot; + OID);
+		 print(OID);	
 	} 
 	else 
 	{
@@ -1832,6 +1872,7 @@ else {
 		Failure = true;	
 		prev.setStopThread(true); 
 	}
+}
 }	
 	
 else {
@@ -1840,6 +1881,12 @@ else {
 	Failure = true;	
 	prev.setStopThread(true); 
 }
+}
+catch (Throwable ex) {
+    log.error(&quot;Error in beanshell&quot;, ex);
+    throw ex;
+}
+
 
 
 //for (int i; i &lt;vars.getObject (&quot;dataFromDB&quot;). size (); i ++)</stringProp>
@@ -1850,6 +1897,109 @@ else {
           <hashTree/>
           <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Beanshell for setproperty" enabled="true">
             <stringProp name="BeanShellAssertion.query">${__setProperty(OutPutFileFieldID, ${OutPutFileFieldID})};</stringProp>
+            <stringProp name="BeanShellAssertion.filename"></stringProp>
+            <stringProp name="BeanShellAssertion.parameters"></stringProp>
+            <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+          </BeanShellAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Fetch InputfileFields Details from DB" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Fetch InputfileFields Details" enabled="true">
+          <stringProp name="dataSource">Test</stringProp>
+          <stringProp name="query">select CAST(Id as INTEGER) AS InputID, * from InputFileFields where ProfileId = &apos;${__property(CommaProfileID)}&apos;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable">IpId</stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="Fetch InputfileFields Details" enabled="true">
+            <stringProp name="dataSource">Test</stringProp>
+            <stringProp name="poolMax">0</stringProp>
+            <stringProp name="timeout">10000</stringProp>
+            <stringProp name="trimInterval">60000</stringProp>
+            <boolProp name="autocommit">true</boolProp>
+            <stringProp name="transactionIsolation">DEFAULT</stringProp>
+            <stringProp name="initQuery"></stringProp>
+            <boolProp name="keepAlive">true</boolProp>
+            <stringProp name="connectionAge">5000</stringProp>
+            <stringProp name="checkQuery"></stringProp>
+            <stringProp name="dbUrl">jdbc:sqlserver://regalpaycloudfilexchange-test.crbrwfnrabqu.us-west-2.rds.amazonaws.com:1433;DatabaseName=FileXchange</stringProp>
+            <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
+            <stringProp name="username">admin</stringProp>
+            <stringProp name="password">Regal123</stringProp>
+          </JDBCDataSource>
+          <hashTree/>
+          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion for fetching InputID" enabled="true">
+            <stringProp name="BeanShellAssertion.query">import org.apache.jmeter.services.FileServer;
+
+try {
+	 String path = FileServer.getFileServer().getBaseDir();
+	f = new FileOutputStream(path+vars.get(&quot;FilePath2&quot;), false); 
+          p = new PrintStream(f);
+          this.interpreter.setOut(p);
+if(ResponseCode.equals(&quot;200&quot;)) 
+{
+          
+for (int i; i &lt;vars.getObject (&quot;IpId&quot;). size (); i ++)
+{
+	if(vars.getObject(&quot;IpId&quot;).size() != 0)
+	{
+
+		String ID = vars.getObject(&quot;IpId&quot;).get(i).get(&quot;InputID&quot;) + &quot;&quot;;
+		vars.put(&quot;InputFieldID&quot;, ID);
+		
+		log.info(&quot; value of Id :  &quot; + ID);
+		
+          print(ID);	
+	} 
+	else 
+	{
+	
+		FailureMessage = &quot;!!!!!!!!!!!! The response is empty !!!!!!!!!!!!!&quot;;
+		Failure = true;	
+		prev.setStopThread(true); 
+	}
+}
+}	
+	
+else {
+	
+	FailureMessage = &quot;!!!!!!!!!!!! No connection to the database !!!!!!!!!!!!!&quot;;
+	Failure = true;	
+	prev.setStopThread(true); 
+}
+}
+catch (Throwable ex) {
+    log.error(&quot;Error in beanshell&quot;, ex);
+    throw ex;
+}
+
+
+</stringProp>
+            <stringProp name="BeanShellAssertion.filename"></stringProp>
+            <stringProp name="BeanShellAssertion.parameters"></stringProp>
+            <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+          </BeanShellAssertion>
+          <hashTree/>
+          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Beanshell for setproperty" enabled="true">
+            <stringProp name="BeanShellAssertion.query">${__setProperty(InputFieldID, ${InputFieldID})};</stringProp>
             <stringProp name="BeanShellAssertion.filename"></stringProp>
             <stringProp name="BeanShellAssertion.parameters"></stringProp>
             <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
@@ -1999,56 +2149,98 @@ else {
           <stringProp name="script"></stringProp>
         </BeanShellPreProcessor>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to Update mapping" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-  &quot;inputFileFieldId&quot;: ${__property(InputFieldID)},&#xd;
-  &quot;outputFileFieldId&quot;: ${__property(OutPutFileFieldID)}&#xd;
-}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${URL}</stringProp>
-          <stringProp name="HTTPSampler.port">UFT-8</stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${Profiles}/${__property(CommaProfileID)}/mappings/${MappingID}</stringProp>
-          <stringProp name="HTTPSampler.method">PUT</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller for Update Mapping" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">8</stringProp>
+        </LoopController>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Accept-Language" elementType="Header">
-                <stringProp name="Header.name">Accept-Language</stringProp>
-                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
-              </elementProp>
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
-              </elementProp>
-              <elementProp name="Cache-Control" elementType="Header">
-                <stringProp name="Header.name">Cache-Control</stringProp>
-                <stringProp name="Header.value">no-cache</stringProp>
-              </elementProp>
-              <elementProp name="Accept" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config for MapID" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="filename">${FilePath1}</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <stringProp name="shareMode">shareMode.thread</stringProp>
+            <boolProp name="stopThread">true</boolProp>
+            <stringProp name="variableNames">MapID</stringProp>
+          </CSVDataSet>
           <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config for InputID" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="filename">${FilePath2}</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <stringProp name="shareMode">shareMode.thread</stringProp>
+            <boolProp name="stopThread">true</boolProp>
+            <stringProp name="variableNames">InputID</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config for OutputId" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="filename">${FilePath3}</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <stringProp name="shareMode">shareMode.thread</stringProp>
+            <boolProp name="stopThread">true</boolProp>
+            <stringProp name="variableNames">OutputID</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to Update mapping" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;inputFileFieldId&quot;: ${InputID},&#xd;
+  &quot;outputFileFieldId&quot;: ${OutputID}&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+            <stringProp name="HTTPSampler.port">UFT-8</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">${Profiles}/${__property(CommaProfileID)}/mappings/${MapID}</stringProp>
+            <stringProp name="HTTPSampler.method">PUT</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept-Language" elementType="Header">
+                  <stringProp name="Header.name">Accept-Language</stringProp>
+                  <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Cache-Control" elementType="Header">
+                  <stringProp name="Header.name">Cache-Control</stringProp>
+                  <stringProp name="Header.value">no-cache</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+          </hashTree>
         </hashTree>
         <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname=" CREATE Mapping default settings" enabled="false">
           <boolProp name="resetInterpreter">false</boolProp>
