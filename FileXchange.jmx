@@ -223,7 +223,7 @@
         <stringProp name="script">import java.net.URLEncoder;
 import java.net.URLDecoder
 
-String Invalid=&quot;test!@#^*(new@hdhr&quot;
+String Invalid=&quot;test!#^*(ne@0)whdhr&quot;
 String encodedstring,decodedstring;
 encodedstring=URLEncoder.encode(Invalid, &apos;UTF-8&apos;);  // encodes string into enc scheme
 //decodedstring=URLDecoder.decode(encodedstring, “UTF-8”);  // decodes string
@@ -270,107 +270,6 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
         <stringProp name="filename"></stringProp>
         <boolProp name="useGroupName">true</boolProp>
       </ResultCollector>
-      <hashTree/>
-      <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="false">
-        <collectionProp name="Asserion.test_strings">
-          <stringProp name="-1146597565">${Response200}</stringProp>
-        </collectionProp>
-        <stringProp name="Assertion.custom_message"></stringProp>
-        <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-        <boolProp name="Assertion.assume_success">true</boolProp>
-        <intProp name="Assertion.test_type">2</intProp>
-      </ResponseAssertion>
-      <hashTree/>
-      <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="false">
-        <collectionProp name="Asserion.test_strings">
-          <stringProp name="-1146537983">${Response400}</stringProp>
-        </collectionProp>
-        <stringProp name="Assertion.custom_message"></stringProp>
-        <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-        <boolProp name="Assertion.assume_success">true</boolProp>
-        <intProp name="Assertion.test_type">2</intProp>
-      </ResponseAssertion>
-      <hashTree/>
-      <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code201" enabled="false">
-        <collectionProp name="Asserion.test_strings">
-          <stringProp name="-1146597534">${Response201}</stringProp>
-        </collectionProp>
-        <stringProp name="Assertion.custom_message"></stringProp>
-        <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-        <boolProp name="Assertion.assume_success">true</boolProp>
-        <intProp name="Assertion.test_type">2</intProp>
-      </ResponseAssertion>
-      <hashTree/>
-      <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code204" enabled="false">
-        <collectionProp name="Asserion.test_strings">
-          <stringProp name="-1146597441">${Response204}</stringProp>
-        </collectionProp>
-        <stringProp name="Assertion.custom_message"></stringProp>
-        <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-        <boolProp name="Assertion.assume_success">true</boolProp>
-        <intProp name="Assertion.test_type">2</intProp>
-      </ResponseAssertion>
-      <hashTree/>
-      <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code404" enabled="false">
-        <collectionProp name="Asserion.test_strings">
-          <stringProp name="-1146537859">${Response404}</stringProp>
-        </collectionProp>
-        <stringProp name="Assertion.custom_message"></stringProp>
-        <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-        <boolProp name="Assertion.assume_success">true</boolProp>
-        <intProp name="Assertion.test_type">2</intProp>
-      </ResponseAssertion>
-      <hashTree/>
-      <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code401" enabled="false">
-        <collectionProp name="Asserion.test_strings">
-          <stringProp name="-1146537952">${Response401}</stringProp>
-        </collectionProp>
-        <stringProp name="Assertion.custom_message"></stringProp>
-        <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-        <boolProp name="Assertion.assume_success">true</boolProp>
-        <intProp name="Assertion.test_type">2</intProp>
-      </ResponseAssertion>
-      <hashTree/>
-      <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code405" enabled="false">
-        <collectionProp name="Asserion.test_strings">
-          <stringProp name="-1146537828">${Response405}</stringProp>
-        </collectionProp>
-        <stringProp name="Assertion.custom_message"></stringProp>
-        <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-        <boolProp name="Assertion.assume_success">true</boolProp>
-        <intProp name="Assertion.test_type">2</intProp>
-      </ResponseAssertion>
-      <hashTree/>
-      <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code406" enabled="false">
-        <collectionProp name="Asserion.test_strings">
-          <stringProp name="-1146537952">${Response401}</stringProp>
-        </collectionProp>
-        <stringProp name="Assertion.custom_message"></stringProp>
-        <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-        <boolProp name="Assertion.assume_success">true</boolProp>
-        <intProp name="Assertion.test_type">2</intProp>
-      </ResponseAssertion>
-      <hashTree/>
-      <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code500" enabled="false">
-        <collectionProp name="Asserion.test_strings">
-          <stringProp name="-1146537952">${Response401}</stringProp>
-        </collectionProp>
-        <stringProp name="Assertion.custom_message"></stringProp>
-        <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-        <boolProp name="Assertion.assume_success">true</boolProp>
-        <intProp name="Assertion.test_type">2</intProp>
-      </ResponseAssertion>
-      <hashTree/>
-      <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="false">
-        <collectionProp name="Asserion.test_strings">
-          <stringProp name="1501365423">&quot;content&quot;:</stringProp>
-          <stringProp name="393520667">&quot;Response&quot;:</stringProp>
-        </collectionProp>
-        <stringProp name="Assertion.custom_message"></stringProp>
-        <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-        <boolProp name="Assertion.assume_success">false</boolProp>
-        <intProp name="Assertion.test_type">2</intProp>
-      </ResponseAssertion>
       <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Input File" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
@@ -18764,7 +18663,7 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.port">UFT-8</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${Profiles}/${encodedstring}/mappings/${MappingID}/custom-mappings</stringProp>
+          <stringProp name="HTTPSampler.path">${Profiles}/${encodedstring}/mappings/${MappingID}/custom-mappings/${CustomMappingID}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -18829,7 +18728,7 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.port">UFT-8</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${Profiles}/${__property(CommaProfileID)}/mappings/${encodedstring}/custom-mappings</stringProp>
+          <stringProp name="HTTPSampler.path">${Profiles}/${__property(CommaProfileID)}/mappings/${encodedstring}/custom-mappings/${CustomMappingID}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
