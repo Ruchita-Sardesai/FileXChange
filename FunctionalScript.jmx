@@ -1795,18 +1795,6 @@ I,,3154456789,11-09-2018,4400,Deo,Test&quot;&#xd;
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="1501365423">&quot;content&quot;:</stringProp>
-              <stringProp name="1048423413">&quot;Name&quot;</stringProp>
-              <stringProp name="-1664583724">&quot;Type&quot;:</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="-1146597565">${Response200}</stringProp>
@@ -2027,17 +2015,6 @@ S|233333333|2121212121|1234123456|17-12-2018|$12022222|Robert Jr.|Important data
             <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
           </BeanShellAssertion>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="false">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="1501365423">&quot;content&quot;:</stringProp>
-              <stringProp name="393520667">&quot;Response&quot;:</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code201" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="-1146597534">${Response201}</stringProp>
@@ -2102,18 +2079,6 @@ S|233333333|2121212121|1234123456|17-12-2018|$12022222|Robert Jr.|Important data
               </elementProp>
             </collectionProp>
           </HeaderManager>
-          <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="false">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="1501365423">&quot;content&quot;:</stringProp>
-              <stringProp name="1048423413">&quot;Name&quot;</stringProp>
-              <stringProp name="-1664583724">&quot;Type&quot;:</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
             <collectionProp name="Asserion.test_strings">
@@ -2184,17 +2149,6 @@ I	134555545	1930000328	2334	10-10-18	$4400	Deo	&#xd;
               </elementProp>
             </collectionProp>
           </HeaderManager>
-          <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="false">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="1501365423">&quot;content&quot;:</stringProp>
-              <stringProp name="393520667">&quot;Response&quot;:</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="F: TAB delimited file data is not getting stored properly in the DB while Uploading " enabled="true">
@@ -3749,13 +3703,6 @@ I,,3154456789,11-09-2018,4400,Deo,Test&quot;&#xd;
             <stringProp name="RegexExtractor.match_number">1</stringProp>
           </RegexExtractor>
           <hashTree/>
-          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="false">
-            <stringProp name="BeanShellAssertion.query">${__setProperty(ConnectionID, ${ConnectionID})};</stringProp>
-            <stringProp name="BeanShellAssertion.filename"></stringProp>
-            <stringProp name="BeanShellAssertion.parameters"></stringProp>
-            <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
-          </BeanShellAssertion>
-          <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="-1146597565">${Response200}</stringProp>
@@ -3836,14 +3783,14 @@ I,,3154456789,11-09-2018,4400,Deo,Test&quot;&#xd;
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validation message should not be" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-809843096"> &quot;Default Value is not Numeric&quot;</stringProp>
+              <stringProp name="-1146597565">${Response200}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
             <boolProp name="Assertion.assume_success">true</boolProp>
-            <intProp name="Assertion.test_type">12</intProp>
+            <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
@@ -4704,13 +4651,6 @@ I,363636219,3154456789,362564230,11-09-2018,4400$,Deo,Test&quot;&#xd;
             <stringProp name="Sample.scope">all</stringProp>
           </RegexExtractor>
           <hashTree/>
-          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="true">
-            <stringProp name="BeanShellAssertion.query">${__setProperty(FunProfileID1, ${FunProfileID1})};</stringProp>
-            <stringProp name="BeanShellAssertion.filename"></stringProp>
-            <stringProp name="BeanShellAssertion.parameters"></stringProp>
-            <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
-          </BeanShellAssertion>
-          <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="Accept-Language" elementType="Header">
@@ -4988,7 +4928,7 @@ I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validation message should not be" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validation message should not be  &quot;Default Value is not Numeric&quot;" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="-809843096"> &quot;Default Value is not Numeric&quot;</stringProp>
             </collectionProp>
@@ -5203,7 +5143,7 @@ I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validation message " enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-536927431"> &quot;Issue_Date&quot;: &quot;555.55&quot;</stringProp>
+              <stringProp name="1154084565"> &quot;Amount&quot;: &quot;555.55&quot;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
@@ -5581,7 +5521,7 @@ I,363636219,3154456789,362564230,11-09-2018,4400$,Deo,Test&quot;&#xd;
           <stringProp name="script"></stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="F: User is not able to UPDATE new output file field after output file has been used for any profile" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="F: User should not be able to UPDATE output file field after output file has been used for any profile" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -5676,7 +5616,7 @@ I,363636219,3154456789,362564230,11-09-2018,4400$,Deo,Test&quot;&#xd;
           <stringProp name="script"></stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="F: User is not able to DELETE new output file field after output file has been used for any profile" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="F: Usershould not be able to DELETE new output file field after output file has been used for any profile" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
