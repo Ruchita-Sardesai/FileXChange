@@ -626,7 +626,7 @@
           <stringProp name="script"></stringProp>
         </BeanShellPreProcessor>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify User is able to Create Output file Type" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify User is able to Create Output file Type-APIPost" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -711,7 +711,7 @@
           <stringProp name="script"></stringProp>
         </BeanShellPreProcessor>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify User is able to Create Output file Type" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify User is able to Create Output file Type-Download" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -721,7 +721,7 @@
   &quot;name&quot;: &quot;OutputFile_${OutputFile_name1}&quot;,&#xd;
   &quot;description&quot;: &quot;${Desc}&quot;,&#xd;
    &quot;outputType&quot;: &quot;${OutputType2}&quot;,&#xd;
-  &quot;url&quot;: &quot;string&quot;&#xd;
+&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -796,7 +796,7 @@
           <stringProp name="script"></stringProp>
         </BeanShellPreProcessor>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify User is able to Create Output file Type" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify User is able to Create Output file Type-FileCreation" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -806,7 +806,7 @@
   &quot;name&quot;: &quot;OutputFile_${OutputFile_name2}&quot;,&#xd;
   &quot;description&quot;: &quot;${Desc}&quot;,&#xd;
    &quot;outputType&quot;: &quot;${OutputType3}&quot;,&#xd;
-  &quot;url&quot;: &quot;string&quot;&#xd;
+&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
