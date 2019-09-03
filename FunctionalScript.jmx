@@ -217,6 +217,21 @@
             <stringProp name="Argument.value">/OutputfiledIdFile.csv</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="OutputType1" elementType="Argument">
+            <stringProp name="Argument.name">OutputType1</stringProp>
+            <stringProp name="Argument.value">APIPost</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="OutputType2" elementType="Argument">
+            <stringProp name="Argument.name">OutputType2</stringProp>
+            <stringProp name="Argument.value">Download</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="OutputType3" elementType="Argument">
+            <stringProp name="Argument.name">OutputType3</stringProp>
+            <stringProp name="Argument.value">FileCreation</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -348,7 +363,9 @@
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot;OutputFile_${OutputFile_name}&quot;,&#xd;
-  &quot;description&quot;: &quot;${Desc}&quot;&#xd;
+  &quot;description&quot;: &quot;${Desc}&quot;,&#xd;
+     &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
+  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1212,6 +1229,54 @@ catch (Throwable ex) {
           </HeaderManager>
           <hashTree/>
         </hashTree>
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="Activate Profile" enabled="false">
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="script"></stringProp>
+        </BeanShellPreProcessor>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to Activate the profile" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+          <stringProp name="HTTPSampler.port">UFT-8</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">${Profiles}/${__property(CommaProfileID)}/activateProfile</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
       </hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Functional Flow: Profile/Delimiter setting /Upload and Sample File" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
@@ -1358,7 +1423,7 @@ I,,3154456789,11-09-2018,4400,Deo,Test&quot;&#xd;
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Should be with status 0" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="938877861">&quot;requestStatus&quot;: 0,</stringProp>
+              <stringProp name="2139741492">&quot;error&quot;: &quot;Delimiter Not Set for Profile&quot;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
@@ -2026,7 +2091,7 @@ S|233333333|2121212121|1234123456|17-12-2018|$12022222|Robert Jr.|Important data
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Step2: Update TAB Delimited file settings" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Step2: Create TAB Delimited file settings" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -2044,8 +2109,8 @@ S|233333333|2121212121|1234123456|17-12-2018|$12022222|Robert Jr.|Important data
           <stringProp name="HTTPSampler.port">UFT-8</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${Profiles}/${TabProfileID}/delimited-file-settings/${delimitedfilesettingid}</stringProp>
-          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <stringProp name="HTTPSampler.path">${Profiles}/${TabProfileID}/delimited-file-settings</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -2540,7 +2605,7 @@ catch (Throwable ex) {
   &quot;defaultValue&quot;: &quot;123456789&quot;,&#xd;
   &quot;isDecimalImplied&quot;: false,&#xd;
   &quot;defaultToCurrentDate&quot;: true,&#xd;
-  &quot;dateFormat&quot;: &quot;string&quot;&#xd;
+&#xd;
 }&#xd;
 </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2618,7 +2683,7 @@ catch (Throwable ex) {
   &quot;defaultValue&quot;: &quot;3&quot;,&#xd;
   &quot;isDecimalImplied&quot;: false,&#xd;
   &quot;defaultToCurrentDate&quot;: true,&#xd;
-  &quot;dateFormat&quot;: &quot;string&quot;&#xd;
+&#xd;
 }&#xd;
 </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2696,7 +2761,7 @@ catch (Throwable ex) {
   &quot;defaultValue&quot;: &quot;987654321&quot;,&#xd;
   &quot;isDecimalImplied&quot;: false,&#xd;
   &quot;defaultToCurrentDate&quot;: true,&#xd;
-   &quot;dateFormat&quot;: &quot;string&quot;&#xd;
+&#xd;
 }&#xd;
 </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2782,7 +2847,7 @@ catch (Throwable ex) {
   &quot;defaultValue&quot;: &quot;369258147&quot;,&#xd;
   &quot;isDecimalImplied&quot;: true,&#xd;
   &quot;defaultToCurrentDate&quot;: true,&#xd;
-  &quot;dateFormat&quot;: &quot;string&quot;&#xd;
+&#xd;
 }&#xd;
 </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2860,7 +2925,7 @@ catch (Throwable ex) {
   &quot;defaultValue&quot;: &quot;3&quot;,&#xd;
   &quot;isDecimalImplied&quot;: true,&#xd;
   &quot;defaultToCurrentDate&quot;: true,&#xd;
-  &quot;dateFormat&quot;: &quot;string&quot;&#xd;
+&#xd;
 }&#xd;
 </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2938,7 +3003,7 @@ catch (Throwable ex) {
   &quot;defaultValue&quot;: &quot;11/12/2018&quot;,&#xd;
   &quot;isDecimalImplied&quot;: true,&#xd;
   &quot;defaultToCurrentDate&quot;: true,&#xd;
-  &quot;dateFormat&quot;: &quot;string&quot;&#xd;
+&#xd;
 }&#xd;
 </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3184,7 +3249,7 @@ catch (Throwable ex) {
   &quot;defaultValue&quot;: &quot;${Value}&quot;,&#xd;
   &quot;isDecimalImplied&quot;: 0,&#xd;
   &quot;defaultToCurrentDate&quot;: 0,&#xd;
-  &quot;dateFormat&quot;: &quot;string&quot;&#xd;
+&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -3248,73 +3313,6 @@ catch (Throwable ex) {
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">16</intProp>
-          </ResponseAssertion>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="F: Verify user is not able to Update Default mappingsettings settings when &apos;IsDefaultValueAllowed&apos; is false." enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-  &quot;defaultValue&quot;: &quot;${Value}&quot;,&#xd;
-  &quot;isDecimalImplied&quot;: 0,&#xd;
-  &quot;defaultToCurrentDate&quot;: 0,&#xd;
-  &quot;dateFormat&quot;: &quot;123123&quot;&#xd;
-}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${URL}</stringProp>
-          <stringProp name="HTTPSampler.port">UFT-8</stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${Profiles}/${__property(CommaProfileID)}/mappings/${row3value}/mapping-default-settings/${__property(MappingdefaultsettingsID)}</stringProp>
-          <stringProp name="HTTPSampler.method">PUT</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Referer" elementType="Header">
-                <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">http://regalpaycloudfilexchangeapiserver-test.pgzemykzam.us-west-2.elasticbeanstalk.com/swagger/index.html</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Language" elementType="Header">
-                <stringProp name="Header.name">Accept-Language</stringProp>
-                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
-              </elementProp>
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
-              </elementProp>
-              <elementProp name="Cache-Control" elementType="Header">
-                <stringProp name="Header.name">Cache-Control</stringProp>
-                <stringProp name="Header.value">no-cache</stringProp>
-              </elementProp>
-              <elementProp name="Accept" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146537983">${Response400}</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">true</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
@@ -3402,72 +3400,6 @@ catch (Throwable ex) {
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="-1146597565">${Response200}</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">true</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="F: Verify user is not able to Update custom mappingsettings settings when &apos;IsCustomValueAllowed&apos; is false." enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-  &quot;key&quot;: &quot;S&quot;,&#xd;
-  &quot;value&quot;: &quot;${Value}&quot;,&#xd;
-&#xd;
-}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${URL}</stringProp>
-          <stringProp name="HTTPSampler.port">UFT-8</stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${Profiles}/${__property(CommaProfileID)}/mappings/${row3value}/custom-mappings/${__property(CustomMappingID)}</stringProp>
-          <stringProp name="HTTPSampler.method">PUT</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Referer" elementType="Header">
-                <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">http://regalpaycloudfilexchangeapiserver-test.pgzemykzam.us-west-2.elasticbeanstalk.com/swagger/index.html</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Language" elementType="Header">
-                <stringProp name="Header.name">Accept-Language</stringProp>
-                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
-              </elementProp>
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
-              </elementProp>
-              <elementProp name="Cache-Control" elementType="Header">
-                <stringProp name="Header.name">Cache-Control</stringProp>
-                <stringProp name="Header.value">no-cache</stringProp>
-              </elementProp>
-              <elementProp name="Accept" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146537983">${Response400}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
@@ -3812,7 +3744,7 @@ I,,3154456789,11-09-2018,4400,Deo,Test&quot;&#xd;
   &quot;defaultValue&quot;: &quot;KKKHHHOOO&quot;,&#xd;
   &quot;isDecimalImplied&quot;: 0,&#xd;
   &quot;defaultToCurrentDate&quot;: 0,&#xd;
-  &quot;dateFormat&quot;: &quot;string&quot;&#xd;
+&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -3870,7 +3802,13 @@ I,,3154456789,11-09-2018,4400,Deo,Test&quot;&#xd;
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validate the message" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-838034262">&quot;error&quot;: &quot;Default Value is not Numeric&quot;</stringProp>
+              <stringProp name="1261016409">{
+    &quot;content&quot;: {
+        &quot;response&quot;: null,
+        &quot;error&quot;: &quot;Value is not Numeric&quot;,
+        &quot;requestStatus&quot;: 0
+    }
+}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -3889,7 +3827,7 @@ I,,3154456789,11-09-2018,4400,Deo,Test&quot;&#xd;
   &quot;defaultValue&quot;: &quot;22/nn/kklk&quot;,&#xd;
   &quot;isDecimalImplied&quot;: 0,&#xd;
   &quot;defaultToCurrentDate&quot;: 0,&#xd;
-  &quot;dateFormat&quot;: &quot;string&quot;&#xd;
+&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -3947,7 +3885,13 @@ I,,3154456789,11-09-2018,4400,Deo,Test&quot;&#xd;
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validate the message" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="2127408430">&quot;error&quot;: &quot;Default Value is not in the specified Date Format&quot;,</stringProp>
+              <stringProp name="-925978837">{
+    &quot;content&quot;: {
+        &quot;response&quot;: null,
+        &quot;error&quot;: &quot;InCorrect DateFormat.Check configured and allowed Date Formats&quot;,
+        &quot;requestStatus&quot;: 0
+    }
+}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -3966,7 +3910,7 @@ I,,3154456789,11-09-2018,4400,Deo,Test&quot;&#xd;
   &quot;defaultValue&quot;: &quot;jkhdkjw&quot;,&#xd;
   &quot;isDecimalImplied&quot;: 0,&#xd;
   &quot;defaultToCurrentDate&quot;: 0,&#xd;
-  &quot;dateFormat&quot;: &quot;string&quot;&#xd;
+&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -4024,7 +3968,13 @@ I,,3154456789,11-09-2018,4400,Deo,Test&quot;&#xd;
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validate the message" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="1610788070">&quot;error&quot;: &quot;Default Value is not Decimal&quot;</stringProp>
+              <stringProp name="-1297270891">{
+    &quot;content&quot;: {
+        &quot;response&quot;: null,
+        &quot;error&quot;: &quot;Value is not Decimal&quot;,
+        &quot;requestStatus&quot;: 0
+    }
+}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
