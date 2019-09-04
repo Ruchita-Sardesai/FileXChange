@@ -175,6 +175,21 @@
             <stringProp name="Argument.value">/OutputfiledIdFile.csv</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="OutputType1" elementType="Argument">
+            <stringProp name="Argument.name">OutputType1</stringProp>
+            <stringProp name="Argument.value">APIPost</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="OutputType2" elementType="Argument">
+            <stringProp name="Argument.name">OutputType2</stringProp>
+            <stringProp name="Argument.value">Download</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="OutputType3" elementType="Argument">
+            <stringProp name="Argument.name">OutputType3</stringProp>
+            <stringProp name="Argument.value">FileCreation</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -833,7 +848,9 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot;OutputFile_${OutputFile_name}&quot;,&#xd;
-  &quot;description&quot;: &quot;${desc}&quot;&#xd;
+  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+  &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
+  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -929,7 +946,9 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot;OutputFile_${OutputFile_name}&quot;,&#xd;
-  &quot;description&quot;: &quot;${desc}&quot;&#xd;
+  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+    &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
+  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -986,7 +1005,9 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: Null,&#xd;
-  &quot;description&quot;: &quot;${desc}&quot;&#xd;
+  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+    &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
+  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1043,7 +1064,9 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot; &quot;,&#xd;
-  &quot;description&quot;:  &quot;${desc}&quot;&#xd;
+  &quot;description&quot;:  &quot;${desc}&quot;,&#xd;
+    &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
+  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1244,7 +1267,9 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot;Updated_OutputFile_${Updated_OutputFile_name}&quot;,&#xd;
-  &quot;description&quot;: &quot;${desc}&quot;&#xd;
+  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+    &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
+  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1314,7 +1339,9 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot;Updated_OutputFile_${Updated_OutputFile_name}&quot;,&#xd;
-  &quot;description&quot;: &quot;${desc}&quot;&#xd;
+  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+    &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
+  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1381,7 +1408,9 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: Null,&#xd;
-  &quot;description&quot;: &quot;${desc}&quot;&#xd;
+  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+    &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
+  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1438,7 +1467,9 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot;&quot;,&#xd;
-  &quot;description&quot;: &quot;${desc}&quot;&#xd;
+  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+    &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
+  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1505,7 +1536,9 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot;Filename_${__time}&quot;,&#xd;
-  &quot;description&quot;: &quot;${desc}&quot;&#xd;
+  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+    &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
+  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1562,7 +1595,9 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot;Filename_${__time}&quot;,&#xd;
-  &quot;description&quot;: &quot;${desc}&quot;&#xd;
+  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+    &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
+  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1619,7 +1654,9 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot;Filename_${__time}&quot;,&#xd;
-  &quot;description&quot;: &quot;${desc}&quot;&#xd;
+  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+    &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
+  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -2154,7 +2191,7 @@ try {
      print(&quot;Issue_Date&quot;+&quot;,&quot;+&quot;6&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;10&quot;+&quot;,&quot;+&quot;2&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;);
      print(&quot;Amount&quot;+&quot;,&quot;+&quot;5&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;9&quot;+&quot;,&quot;+&quot;4&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);     
      print(&quot;Payee_name&quot;+&quot;,&quot;+&quot;7&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;20&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;false&quot;);
-     print(&quot;Notes&quot;+&quot;,&quot;+&quot;8&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;20&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);
+     print(&quot;Notes&quot;+&quot;,&quot;+&quot;8&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;60&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);
      
      f.close();
 
@@ -2923,7 +2960,7 @@ catch (Throwable ex) {
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot;${Name}&quot;,&#xd;
-  &quot;order&quot;: &quot;${Order_ID}&quot;,&#xd;
+  &quot;order&quot;: &quot;15&quot;,&#xd;
   &quot;isMandatory&quot;:${isMand},&#xd;
   &quot;maxLength&quot;:0,&#xd;
   &quot;type&quot;:${type},&#xd;
@@ -6050,7 +6087,7 @@ test</stringProp>
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to create new profile for Delimiter &apos;PIPE&quot;" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to create new profile for Delimiter &apos;Semicolon&quot;" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -7826,7 +7863,7 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.port">UFT-8</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${Profiles}/</stringProp>
+          <stringProp name="HTTPSampler.path">${Profiles}/ </stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -8185,15 +8222,15 @@ testt test</stringProp>
           </RegexExtractor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to create PIPE Delimited file settings" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to create Semicolon Delimited file settings" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Pipe&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;Double&quot;&#xd;
+          &quot;delimiter&quot;:&quot;Semicolon&quot;,&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char}&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -8281,6 +8318,83 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">${Profiles}/${TabProfileID}/delimited-file-settings</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">http://regalpaycloudfilexchangeapiserver-test.pgzemykzam.us-west-2.elasticbeanstalk.com/swagger/index.html</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1501365423">&quot;content&quot;:</stringProp>
+              <stringProp name="1048423413">&quot;Name&quot;</stringProp>
+              <stringProp name="-1664583724">&quot;Type&quot;:</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146597565">${Response200}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to add Other Delimited file settings" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"> {&#xd;
+          &quot;delimiter&quot;:&quot;Tab&quot;,&#xd;
+         &quot;EscapeCharacter&quot;:&quot;SingleQuote&quot;&#xd;
+ }  </stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+          <stringProp name="HTTPSampler.port">UFT-8</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">${Profiles}/${OtherProfileID}/delimited-file-settings</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -8863,7 +8977,7 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.port">UFT-8</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${Profiles}//delimited-file-settings</stringProp>
+          <stringProp name="HTTPSampler.path">${Profiles}/ /delimited-file-settings</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -9226,15 +9340,15 @@ testt test</stringProp>
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to Update PIPE Delimited file settings" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to Update Semicolon Delimited file settings" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Pipe&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;Double&quot;&#xd;
+          &quot;delimiter&quot;:&quot;Semicolon&quot;,&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char}&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -10843,7 +10957,7 @@ I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to Upload File for Pipe" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to Upload File for Semicolon" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -12732,7 +12846,7 @@ catch (Throwable ex) {
           <stringProp name="HTTPSampler.port">UFT-8</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${Profiles}/${__property(CommaProfileID)}/mappings/</stringProp>
+          <stringProp name="HTTPSampler.path">${Profiles}/${__property(CommaProfileID)}/mappings/ </stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -21091,6 +21205,54 @@ testt test</stringProp>
             <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">16</intProp>
           </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="Activate Profile" enabled="false">
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="script"></stringProp>
+        </BeanShellPreProcessor>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to Activate the profile" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+          <stringProp name="HTTPSampler.port">UFT-8</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">${Profiles}/${__property(CommaProfileID)}/activateProfile</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
           <hashTree/>
         </hashTree>
       </hashTree>
