@@ -110,9 +110,9 @@
             <stringProp name="Argument.value">Comma</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="DPIPE" elementType="Argument">
-            <stringProp name="Argument.name">DPIPE</stringProp>
-            <stringProp name="Argument.value">Pipe</stringProp>
+          <elementProp name="DSEMI" elementType="Argument">
+            <stringProp name="Argument.name">DSEMI</stringProp>
+            <stringProp name="Argument.value">Semicolon</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="DTAB" elementType="Argument">
@@ -140,24 +140,19 @@
             <stringProp name="Argument.value">Description for the Update Output File Type</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="delimiter_Name" elementType="Argument">
-            <stringProp name="Argument.name">delimiter_Name</stringProp>
-            <stringProp name="Argument.value">Comma</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="Escape_char" elementType="Argument">
-            <stringProp name="Argument.name">Escape_char</stringProp>
+          <elementProp name="Escape_char1" elementType="Argument">
+            <stringProp name="Argument.name">Escape_char1</stringProp>
             <stringProp name="Argument.value">DoubleQuote</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="true" elementType="Argument">
-            <stringProp name="Argument.name">true</stringProp>
-            <stringProp name="Argument.value">true</stringProp>
+          <elementProp name="Escape_char2" elementType="Argument">
+            <stringProp name="Argument.name">Escape_char2</stringProp>
+            <stringProp name="Argument.value">SingleQuote</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="false" elementType="Argument">
-            <stringProp name="Argument.name">false</stringProp>
-            <stringProp name="Argument.value">false</stringProp>
+          <elementProp name="-------------------------------------" elementType="Argument">
+            <stringProp name="Argument.name">-------------------------------------</stringProp>
+            <stringProp name="Argument.value">-------------------------------------</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FilePath2" elementType="Argument">
@@ -178,6 +173,11 @@
           <elementProp name="OutputType1" elementType="Argument">
             <stringProp name="Argument.name">OutputType1</stringProp>
             <stringProp name="Argument.value">APIPost</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="API_url" elementType="Argument">
+            <stringProp name="Argument.name">API_url</stringProp>
+            <stringProp name="Argument.value">http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="OutputType2" elementType="Argument">
@@ -286,7 +286,7 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
         <boolProp name="useGroupName">true</boolProp>
       </ResultCollector>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Input File" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Input File" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -433,7 +433,7 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Master Data" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Master Data" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -820,7 +820,7 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Create Outputfile" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Create Outputfile" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -840,7 +840,7 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
           <stringProp name="script"></stringProp>
         </BeanShellPreProcessor>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify User is able to Create Output file Type" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify User is able to CREATE Output file Type" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -850,7 +850,7 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
   &quot;name&quot;: &quot;OutputFile_${OutputFile_name}&quot;,&#xd;
   &quot;description&quot;: &quot;${desc}&quot;,&#xd;
   &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
-  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
+  &quot;url&quot;: &quot;${API_url}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -948,7 +948,7 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
   &quot;name&quot;: &quot;OutputFile_${OutputFile_name}&quot;,&#xd;
   &quot;description&quot;: &quot;${desc}&quot;,&#xd;
     &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
-  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
+   &quot;url&quot;: &quot;${API_url}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -996,6 +996,16 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-540241999"> &quot;error&quot;: &quot;Output File Type with the name already exists&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify User is not able to CREATE Output file Type with Null Name field" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -1007,7 +1017,7 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
   &quot;name&quot;: Null,&#xd;
   &quot;description&quot;: &quot;${desc}&quot;,&#xd;
     &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
-  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
+   &quot;url&quot;: &quot;${API_url}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1066,7 +1076,7 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
   &quot;name&quot;: &quot; &quot;,&#xd;
   &quot;description&quot;:  &quot;${desc}&quot;,&#xd;
     &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
-  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
+   &quot;url&quot;: &quot;${API_url}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1116,11 +1126,315 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Text Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1490191299">&quot;error&quot;: &quot;&apos;Name&apos; must not be empty.&quot;</stringProp>
+              <stringProp name="-333190244">&quot;error&quot;: &quot;Name is null/empty&quot;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify User is not able to CREATE Output file Type without output type field" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;name&quot;: &quot;OutputFile_${OutputFile_name}_123&quot;,&#xd;
+  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+   &quot;url&quot;: &quot;${API_url}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">${Outputfiletype}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146537983">${Response400}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify User is not able to CREATE Output file Type with Null Output type" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;name&quot;: &quot;OutputFile_${OutputFile_name}&quot;,&#xd;
+   &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+   &quot;outputType&quot;: Null,&#xd;
+    &quot;url&quot;: &quot;${API_url}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">${Outputfiletype}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146537983">${Response400}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify User is not able to CREATE Output file Type with Empty Output type" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;name&quot;: &quot;OutputFile_${OutputFile_name}&quot;,&#xd;
+  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+  &quot;outputType&quot;: &quot;&quot;,&#xd;
+   &quot;url&quot;: &quot;${API_url}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">${Outputfiletype}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146537983">${Response400}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify User is not able to CREATE Output file Type without URL field" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;name&quot;: &quot;OutputFile_${OutputFile_name}&quot;,&#xd;
+  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+  &quot;outputType&quot;: &quot;${OutputType1}&quot;&#xd;
+ &#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">${Outputfiletype}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146597565">${Response200}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion Text " enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1000538451">&quot;error&quot;: &quot;URL field missing&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify User is not able to CREATE Output file Type with Null URL field" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;name&quot;: &quot;OutputFile_${OutputFile_name}&quot;,&#xd;
+   &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+   &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
+   &quot;url&quot;: Null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">${Outputfiletype}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146537983">${Response400}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
@@ -1182,7 +1496,7 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1490191299">&quot;error&quot;: &quot;&apos;Name&apos; must not be empty.&quot;</stringProp>
+              <stringProp name="-333190244">&quot;error&quot;: &quot;Name is null/empty&quot;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1267,9 +1581,9 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot;Updated_OutputFile_${Updated_OutputFile_name}&quot;,&#xd;
-  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+  &quot;description&quot;: &quot;${UpdateDesc}&quot;,&#xd;
     &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
-  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
+   &quot;url&quot;: &quot;${API_url}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1339,9 +1653,9 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot;Updated_OutputFile_${Updated_OutputFile_name}&quot;,&#xd;
-  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+  &quot;description&quot;: &quot;${UpdateDesc}&quot;,&#xd;
     &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
-  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
+   &quot;url&quot;: &quot;${API_url}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1391,7 +1705,17 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="1969949031">&quot;requestStatus&quot;: 0</stringProp>
+              <stringProp name="1170142887">&quot;error&quot;: &quot;Output File Field with the name already exists&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-540241999"> &quot;error&quot;: &quot;Output File Type with the name already exists&quot;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1408,9 +1732,9 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: Null,&#xd;
-  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+  &quot;description&quot;: &quot;${UpdateDesc}&quot;,&#xd;
     &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
-  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
+   &quot;url&quot;: &quot;${API_url}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1467,9 +1791,9 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot;&quot;,&#xd;
-  &quot;description&quot;: &quot;${desc}&quot;,&#xd;
+  &quot;description&quot;: &quot;${UpdateDesc}&quot;,&#xd;
     &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
-  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
+   &quot;url&quot;: &quot;${API_url}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1519,11 +1843,315 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Text Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1490191299">&quot;error&quot;: &quot;&apos;Name&apos; must not be empty.&quot;</stringProp>
+              <stringProp name="-535510574">&quot;error&quot;: &quot;Name is null/empty, &apos;Name&apos; must be between 1 and 50 characters. You entered 0 characters.&quot;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify User is not able to UPDATE Output file Type without output type field" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+   &quot;name&quot;: &quot;Updated_OutputFile_${Updated_OutputFile_name}_123&quot;,&#xd;
+  &quot;description&quot;: &quot;${UpdateDesc}&quot;,&#xd;
+   &quot;url&quot;: &quot;${API_url}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">${Outputfiletype}/${OutputFileType_ID}</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146537983">${Response400}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify User is not able to UPDATE Output file Type with Null Output type" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;name&quot;: &quot;Updated_OutputFile_${Updated_OutputFile_name}&quot;,&#xd;
+   &quot;description&quot;: &quot;${UpdateDesc}&quot;,&#xd;
+   &quot;outputType&quot;: Null,&#xd;
+    &quot;url&quot;: &quot;${API_url}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">${Outputfiletype}/${OutputFileType_ID}</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146537983">${Response400}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify User is not able to UPDATE Output file Type with Empty Output type" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;name&quot;: &quot;Updated_OutputFile_${Updated_OutputFile_name}&quot;,&#xd;
+  &quot;description&quot;: &quot;${UpdateDesc}&quot;,&#xd;
+  &quot;outputType&quot;: &quot;&quot;,&#xd;
+   &quot;url&quot;: &quot;${API_url}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">${Outputfiletype}/${OutputFileType_ID}</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146537983">${Response400}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify User is not able to UPDATE Output file Type without URL field" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;name&quot;: &quot;Updated_OutputFile_${Updated_OutputFile_name}&quot;,&#xd;
+  &quot;description&quot;: &quot;${UpdateDesc}&quot;,&#xd;
+  &quot;outputType&quot;: &quot;${OutputType1}&quot;&#xd;
+ &#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">${Outputfiletype}/${OutputFileType_ID}</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146597565">${Response200}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion Text " enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1000538451">&quot;error&quot;: &quot;URL field missing&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify User is not able to UPDATE Output file Type with Null URL field" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;name&quot;: &quot;Updated_OutputFile_${Updated_OutputFile_name}&quot;,&#xd;
+  &quot;description&quot;: &quot;${UpdateDesc}&quot;,&#xd;
+   &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
+   &quot;url&quot;: Null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">${Outputfiletype}/${OutputFileType_ID}</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146537983">${Response400}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
@@ -1538,7 +2166,7 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
   &quot;name&quot;: &quot;Filename_${__time}&quot;,&#xd;
   &quot;description&quot;: &quot;${desc}&quot;,&#xd;
     &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
-  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
+   &quot;url&quot;: &quot;${API_url}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1597,7 +2225,7 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
   &quot;name&quot;: &quot;Filename_${__time}&quot;,&#xd;
   &quot;description&quot;: &quot;${desc}&quot;,&#xd;
     &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
-  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
+   &quot;url&quot;: &quot;${API_url}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1656,7 +2284,7 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
   &quot;name&quot;: &quot;Filename_${__time}&quot;,&#xd;
   &quot;description&quot;: &quot;${desc}&quot;,&#xd;
     &quot;outputType&quot;: &quot;${OutputType1}&quot;,&#xd;
-  &quot;url&quot;: &quot;http://regalpayservice-dev.us-west-2.elasticbeanstalk.com/api/v1/payments/uploads&quot;&#xd;
+   &quot;url&quot;: &quot;${API_url}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1772,7 +2400,7 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Text Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1490191299">&quot;error&quot;: &quot;&apos;Name&apos; must not be empty.&quot;</stringProp>
+              <stringProp name="716652935"> &quot;requestStatus&quot;: 0</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -2104,7 +2732,7 @@ vars.put(&apos;encodedstring&apos;,encodedstring);
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="OutputFileField" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="OutputFileField" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -2185,11 +2813,11 @@ try {
      p = new PrintStream(f); 
      this.interpreter.setOut(p); 
      print(&quot;Record_Type&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot; +&quot;,&quot;+&quot;false&quot;);
-     print(&quot;Routing_Number&quot;+&quot;,&quot;+&quot;2&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;9&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot; +&quot;,&quot;+&quot;true&quot;);
-     print(&quot;Account_Number&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;10&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;false&quot;);
-     print(&quot;Check_Number&quot;+&quot;,&quot;+&quot;4&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;10&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);
-     print(&quot;Issue_Date&quot;+&quot;,&quot;+&quot;6&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;10&quot;+&quot;,&quot;+&quot;2&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;);
-     print(&quot;Amount&quot;+&quot;,&quot;+&quot;5&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;9&quot;+&quot;,&quot;+&quot;4&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);     
+     print(&quot;Routing_Number&quot;+&quot;,&quot;+&quot;2&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;0&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot; +&quot;,&quot;+&quot;false&quot;);
+     print(&quot;Account_Number&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;0&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;false&quot;);
+     print(&quot;Check_Number&quot;+&quot;,&quot;+&quot;4&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;0&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);
+     print(&quot;Issue_Date&quot;+&quot;,&quot;+&quot;6&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;0&quot;+&quot;,&quot;+&quot;2&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);
+     print(&quot;Amount&quot;+&quot;,&quot;+&quot;5&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;0&quot;+&quot;,&quot;+&quot;4&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);     
      print(&quot;Payee_name&quot;+&quot;,&quot;+&quot;7&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;20&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;false&quot;);
      print(&quot;Notes&quot;+&quot;,&quot;+&quot;8&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;60&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);
      
@@ -2368,7 +2996,7 @@ catch (Throwable ex) {
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1490191299">&quot;error&quot;: &quot;&apos;Name&apos; must not be empty.&quot;</stringProp>
+              <stringProp name="-535510574">&quot;error&quot;: &quot;Name is null/empty, &apos;Name&apos; must be between 1 and 50 characters. You entered 0 characters.&quot;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -3015,6 +3643,16 @@ catch (Throwable ex) {
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="409989730"> &quot;error&quot;: &quot;Max Length can&apos;t be less than or equal to 0&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify User is  not able to CREATE Output file Field with Empty type field" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -3080,7 +3718,7 @@ catch (Throwable ex) {
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to create Outputfilefeild with empty request" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to CREATE Outputfilefeild with empty request" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -3143,8 +3781,18 @@ catch (Throwable ex) {
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-661207431">&quot;error&quot;: &quot;Name is null/empty, &apos;Order&apos; must not be empty., Order should be greater than zero, &apos;Type&apos; must not be empty.&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to create Outputfilefeild with Wrong JSON" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to CREATE Outputfilefeild with Wrong JSON" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -3216,7 +3864,7 @@ catch (Throwable ex) {
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to create Outputfilefeild with wrong request" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to CREATE Outputfilefeild with wrong request" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -3279,7 +3927,7 @@ TEST</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Create Outputfilefeild with empty OutputFileType ID" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to CREATE Outputfilefeild with empty OutputFileType ID" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -3351,7 +3999,7 @@ TEST</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Create Outputfilefeild with NULL OutputFileType ID" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to CREATE Outputfilefeild with NULL OutputFileType ID" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -3423,7 +4071,7 @@ TEST</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Create Outputfilefeild with invalid OutputFileType ID" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to CREATE Outputfilefeild with invalid OutputFileType ID" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -4288,6 +4936,16 @@ TEST</stringProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="409989730"> &quot;error&quot;: &quot;Max Length can&apos;t be less than or equal to 0&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify User is  not able to UPDATE Output file Field with Empty type field" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -4353,7 +5011,7 @@ TEST</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Outputfilefeild with empty request" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to UPDATE Outputfilefeild with empty request" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -4417,7 +5075,7 @@ TEST</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Outputfilefeild with Wrong JSON request" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to UPDATE Outputfilefeild with Wrong JSON request" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -4489,7 +5147,7 @@ TEST</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Outputfilefeild with Wrong request" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to UPDATE Outputfilefeild with Wrong request" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -4552,7 +5210,7 @@ test</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Outputfilefeild with empty OutputFileType ID" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to UPDATE Outputfilefeild with empty OutputFileType ID" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -4623,8 +5281,18 @@ test</stringProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-661207431">&quot;error&quot;: &quot;Name is null/empty, &apos;Order&apos; must not be empty., Order should be greater than zero, &apos;Type&apos; must not be empty.&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Outputfilefeild with NULL OutputFileType ID" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to UPDATE Outputfilefeild with NULL OutputFileType ID" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -4696,7 +5364,7 @@ test</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Outputfilefeild with invalid OutputFileType ID" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to UPDATE Outputfilefeild with invalid OutputFileType ID" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -4768,7 +5436,7 @@ test</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Outputfilefeild with empty outputFileField_ID" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to UPDATE Outputfilefeild with empty outputFileField_ID" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -4840,7 +5508,7 @@ test</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Outputfilefeild with NULL outputFileField_ID" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to UPDATE Outputfilefeild with NULL outputFileField_ID" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -4912,7 +5580,7 @@ test</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Outputfilefeild with Invalid outputFileField_ID" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to UPDATE Outputfilefeild with Invalid outputFileField_ID" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -6026,8 +6694,8 @@ test</stringProp>
           &quot;Name&quot;:&quot;TestDeliR${__time()}&quot;,&#xd;
           &quot;OutputFileTypeId&quot;: ${__property(OutputFileType_ID)},&#xd;
           &quot;InputFileTypeId&quot; : ${__property(InputFileType_ID)},&#xd;
-          &quot;hasHeader&quot;: ${true},&#xd;
-          &quot;hasTrailer&quot;: ${true},&#xd;
+          &quot;hasHeader&quot;: true,&#xd;
+          &quot;hasTrailer&quot;: false,&#xd;
           }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -6289,8 +6957,8 @@ test</stringProp>
           &quot;Name&quot;:&quot;TestDeliR${__time()}&quot;,&#xd;
           &quot;OutputFileTypeId&quot;: ${__property(OutputFileType_ID)},&#xd;
           &quot;InputFileTypeId&quot; : ${__property(InputFileType_ID)},&#xd;
-          &quot;hasHeader&quot;: ${true},&#xd;
-          &quot;hasTrailer&quot;: ${true},&#xd;
+          &quot;hasHeader&quot;: true,&#xd;
+          &quot;hasTrailer&quot;: false,&#xd;
           }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -6407,10 +7075,9 @@ test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="1501365423">&quot;content&quot;:</stringProp>
-              <stringProp name="393520667">&quot;Response&quot;:</stringProp>
+              <stringProp name="303270171"> &quot;error&quot;: &quot;&apos;Name&apos; must be between 1 and 50 characters. You entered 261 characters.&quot;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -7094,13 +7761,23 @@ test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146537983">${Response400}</stringProp>
+              <stringProp name="-1146597565">${Response200}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
             <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1219837757">&quot;error&quot;: &quot;&apos;Name&apos; must not be empty., Name is null/empty&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
@@ -7294,13 +7971,23 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146537983">${Response400}</stringProp>
+              <stringProp name="-1146597565">${Response200}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
             <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1753134026">Name&apos; must not be empty., &apos;Name&apos; must be between 1 and 50 characters. You entered 0 characters</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
@@ -8081,13 +8768,23 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146537983">${Response400}</stringProp>
+              <stringProp name="-1146597565">${Response200}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
             <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1753134026">Name&apos; must not be empty., &apos;Name&apos; must be between 1 and 50 characters. You entered 0 characters</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
@@ -8153,6 +8850,16 @@ testt test</stringProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1969949031">&quot;requestStatus&quot;: 0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="Add Delimiter to profile" enabled="false">
           <stringProp name="filename"></stringProp>
@@ -8168,8 +8875,8 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-          &quot;delimiter&quot;:&quot;${delimiter_Name}&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;${Escape_char}&quot;&#xd;
+          &quot;delimiter&quot;:&quot;${DCOMMA}&quot;,&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char1}&quot;&#xd;
         } </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -8221,6 +8928,28 @@ testt test</stringProp>
             <stringProp name="Sample.scope">all</stringProp>
           </RegexExtractor>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1501365423">&quot;content&quot;:</stringProp>
+              <stringProp name="1048423413">&quot;Name&quot;</stringProp>
+              <stringProp name="-1664583724">&quot;Type&quot;:</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146597565">${Response200}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to create Semicolon Delimited file settings" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -8229,8 +8958,8 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Semicolon&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;${Escape_char}&quot;&#xd;
+          &quot;delimiter&quot;:&quot;${DSEMI}&quot;,&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char2}&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -8288,15 +9017,25 @@ testt test</stringProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code201" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146597534">${Response201}</stringProp>
+              <stringProp name="-1146597565">${Response200}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
             <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Token Extractor" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">delimitedfilesettingid_Semi</stringProp>
+            <stringProp name="RegexExtractor.regex">&quot;response&quot;: (.+?)&quot;*(?=,)</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">0</stringProp>
+            <stringProp name="RegexExtractor.match_number">1</stringProp>
+            <stringProp name="Sample.scope">all</stringProp>
+          </RegexExtractor>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to create TAB Delimited file settings" enabled="true">
@@ -8306,8 +9045,8 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Tab&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;SingleQuote&quot;&#xd;
+          &quot;delimiter&quot;:&quot;${DTAB}&quot;,&#xd;
+          &quot;EscapeCharacter&quot;:&quot;${Escape_char2}&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -8353,7 +9092,7 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="1501365423">&quot;content&quot;:</stringProp>
               <stringProp name="1048423413">&quot;Name&quot;</stringProp>
@@ -8375,6 +9114,16 @@ testt test</stringProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Token Extractor" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">delimitedfilesettingid_Tab</stringProp>
+            <stringProp name="RegexExtractor.regex">&quot;response&quot;: (.+?)&quot;*(?=,)</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">0</stringProp>
+            <stringProp name="RegexExtractor.match_number">1</stringProp>
+            <stringProp name="Sample.scope">all</stringProp>
+          </RegexExtractor>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to add Other Delimited file settings" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -8383,8 +9132,8 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Tab&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;SingleQuote&quot;&#xd;
+          &quot;delimiter&quot;:&quot;Pipe&quot;,&#xd;
+          &quot;EscapeCharacter&quot;:&quot;${Escape_char2}&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -8430,7 +9179,7 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="1501365423">&quot;content&quot;:</stringProp>
               <stringProp name="1048423413">&quot;Name&quot;</stringProp>
@@ -8453,15 +9202,15 @@ testt test</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to create Delimiter file setting already exist for this profil" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to create Delimiter file setting already exist for this profile" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-          &quot;delimiter&quot;:&quot;${delimiter_Name}&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;${Escape_char}&quot;&#xd;
+          &quot;delimiter&quot;:&quot;${DCOMMA}&quot;,&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char1}&quot;&#xd;
         } </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -8503,6 +9252,26 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146597565">${Response200}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="492497592">&quot;error&quot;: &quot;Delimiter file setting already exist for this profile&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to create Delimited file settings with the  &apos;Delimiter&apos; which is not present in configuration" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -8512,7 +9281,7 @@ testt test</stringProp>
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
           &quot;delimiter&quot;:&quot;Test&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;SingleQuote&quot;&#xd;
+          &quot;EscapeCharacter&quot;:&quot;${Escape_char2}&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -8576,7 +9345,7 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Comma&quot;,&#xd;
+          &quot;delimiter&quot;:&quot;${DCOMMA}&quot;,&#xd;
          &quot;EscapeCharacter&quot;:&quot;TestNot&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -8641,7 +9410,7 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Comma&quot;,&#xd;
+          &quot;delimiter&quot;:&quot;${DTAB}&quot;,&#xd;
          &quot;EscapeCharacter&quot;:&quot;&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -8698,6 +9467,16 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="801204969"> &quot;error&quot;: &quot;Escape character/Delimiter string should not be empty&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to create Delimited file settings with Empty &apos;delimiter&apos;" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -8707,7 +9486,7 @@ testt test</stringProp>
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
           &quot;delimiter&quot;:&quot;&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;SingleQuote&quot;&#xd;
+          &quot;EscapeCharacter&quot;:&quot;${Escape_char2}&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -8763,6 +9542,16 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="801204969"> &quot;error&quot;: &quot;Escape character/Delimiter string should not be empty&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to create Delimited file settings with NULL &apos;delimiter&apos;" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -8772,7 +9561,7 @@ testt test</stringProp>
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
           &quot;delimiter&quot;:NULL,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;SingleQuote&quot;&#xd;
+          &quot;EscapeCharacter&quot;:&quot;${Escape_char2}&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -8828,6 +9617,16 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1625527539"> &quot;error&quot;: &quot;DelimiterDTO is null&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to create Delimited file settings with NULL &apos;EscapeCharacter&apos;" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -8836,7 +9635,7 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Comma&quot;,&#xd;
+          &quot;delimiter&quot;:&quot;${DTAB}&quot;,&#xd;
          &quot;EscapeCharacter&quot;:NULL&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -8893,6 +9692,16 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1625527539"> &quot;error&quot;: &quot;DelimiterDTO is null&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to create Delimited file settings with invalid ProfileID" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -8901,8 +9710,8 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Comma&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;TestNot&quot;&#xd;
+          &quot;delimiter&quot;:&quot;${DTAB}&quot;,&#xd;
+          &quot;EscapeCharacter&quot;:&quot;${Escape_char2}&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -8958,6 +9767,16 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="192322837">&quot;error&quot;: &quot;ProfileID is null or not a guid &quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to create Delimited file settings with Empty ProfileID" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -8965,10 +9784,10 @@ testt test</stringProp>
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Comma&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;SingleQuote&quot;&#xd;
- }  </stringProp>
+                <stringProp name="Argument.value">{&#xd;
+          &quot;delimiter&quot;:&quot;${DCOMMA}&quot;,&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char1}&quot;&#xd;
+        } </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -9023,6 +9842,16 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="192322837">&quot;error&quot;: &quot;ProfileID is null or not a guid &quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to create Delimited file settings with NULL ProfileID" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -9031,9 +9860,9 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Comma&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;SingleQuote&quot;&#xd;
- }  </stringProp>
+          &quot;delimiter&quot;:&quot;${DCOMMA}&quot;,&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char1}&quot;&#xd;
+        }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -9088,6 +9917,16 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="192322837">&quot;error&quot;: &quot;ProfileID is null or not a guid &quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to create Delimited file settings with Wrong JSON" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -9095,10 +9934,14 @@ testt test</stringProp>
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Comma&quot;&#xd;
-         &quot;EscapeCharacter&quot;:&quot;SingleQuote&quot;&#xd;
- }  </stringProp>
+                <stringProp name="Argument.value">{&#xd;
+  iiouhfrgysdhfjcjfuhvwsdnckld&#xd;
+  kljndhlcbvsjkkjf ncvxcjbvsdjfndvcnnvsf&#xd;
+  mjhvfgdhavbdnfjlnbgrhjsdvfhjkfbnnfsd&#xd;
+  nfhjewefgdhjkkgfrjkbhDHFBKHFA&#xd;
+  MNJHFVGKDSGHHFJDLABVBSDJHBHFKJDAFKVDAF&#xd;
+  FMNHJFSAGVJKFDNVBHLFXBVJCNBBNJKN &#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -9150,6 +9993,16 @@ testt test</stringProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
             <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1625527539"> &quot;error&quot;: &quot;DelimiterDTO is null&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
@@ -9207,13 +10060,23 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146537983">${Response400}</stringProp>
+              <stringProp name="-1146597565">${Response200}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
             <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="801204969"> &quot;error&quot;: &quot;Escape character/Delimiter string should not be empty&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
@@ -9281,6 +10144,16 @@ testt test</stringProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1625527539"> &quot;error&quot;: &quot;DelimiterDTO is null&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="Update Delimiter to profile" enabled="false">
           <stringProp name="filename"></stringProp>
@@ -9296,8 +10169,8 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-          &quot;delimiter&quot;:&quot;${delimiter_Name}&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;${Escape_char}&quot;&#xd;
+          &quot;delimiter&quot;:&quot;${DTAB}&quot;,&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char1}&quot;&#xd;
         } </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -9339,6 +10212,26 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146597565">${Response200}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to Update Semicolon Delimited file settings" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -9347,8 +10240,8 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Semicolon&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;${Escape_char}&quot;&#xd;
+          &quot;delimiter&quot;:&quot;${DSEMI}&quot;,&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char2}&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -9358,7 +10251,7 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.port">UFT-8</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${Profiles}/${PipeProfileID}/delimited-file-settings/${delimitedfilesettingid}</stringProp>
+          <stringProp name="HTTPSampler.path">${Profiles}/${PipeProfileID}/delimited-file-settings/${delimitedfilesettingid_Semi}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -9416,6 +10309,16 @@ testt test</stringProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146597565">${Response200}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to Update TAB Delimited file settings" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -9424,8 +10327,8 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Tab&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;SingleQuote&quot;&#xd;
+          &quot;delimiter&quot;:&quot;${DTAB}&quot;,&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char1}&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -9435,7 +10338,7 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.port">UFT-8</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${Profiles}/${TabProfileID}/delimited-file-settings/${delimitedfilesettingid}</stringProp>
+          <stringProp name="HTTPSampler.path">${Profiles}/${TabProfileID}/delimited-file-settings/${delimitedfilesettingid_Tab}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -9493,6 +10396,16 @@ testt test</stringProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146597565">${Response200}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="P: Verify user is able to Update Delimiter file setting already exist for this profile" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -9501,8 +10414,8 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-          &quot;delimiter&quot;:&quot;${delimiter_Name}&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;${Escape_char}&quot;&#xd;
+          &quot;delimiter&quot;:&quot;${DCOMMA}&quot;,&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char1}&quot;&#xd;
         } </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -9544,6 +10457,16 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1902296790">Delimiter file setting already exist for this profile</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="-1146597565">${Response200}</stringProp>
@@ -9563,7 +10486,7 @@ testt test</stringProp>
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
           &quot;delimiter&quot;:&quot;Test&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;SingleQuote&quot;&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char1}&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -9584,16 +10507,6 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146597565">${Response200}</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">true</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="Referer" elementType="Header">
@@ -9619,6 +10532,16 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146597565">${Response200}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Delimited file settings with the &apos;EscapeCharacter&apos;  which is not present in configuration" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -9627,7 +10550,7 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Comma&quot;,&#xd;
+          &quot;delimiter&quot;:&quot;${DTAB}&quot;,&#xd;
          &quot;EscapeCharacter&quot;:&quot;TestNot&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -9649,16 +10572,6 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146597565">${Response200}</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">true</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="Referer" elementType="Header">
@@ -9684,6 +10597,16 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146597565">${Response200}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Delimited file settings with Empty &apos;EscapeCharacter&apos;" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -9692,7 +10615,7 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Comma&quot;,&#xd;
+          &quot;delimiter&quot;:&quot;${DCOMMA}&quot;,&#xd;
          &quot;EscapeCharacter&quot;:&quot;&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -9714,16 +10637,6 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146597565">${Response200}</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">true</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="Referer" elementType="Header">
@@ -9748,6 +10661,26 @@ testt test</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="801204969"> &quot;error&quot;: &quot;Escape character/Delimiter string should not be empty&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146597565">${Response200}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Delimited file settings with Empty &apos;delimiter&apos;" enabled="true">
@@ -9758,7 +10691,7 @@ testt test</stringProp>
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
           &quot;delimiter&quot;:&quot;&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;SingleQuote&quot;&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char1}&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -9779,6 +10712,41 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">http://regalpaycloudfilexchangeapiserver-test.pgzemykzam.us-west-2.elasticbeanstalk.com/swagger/index.html</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="801204969"> &quot;error&quot;: &quot;Escape character/Delimiter string should not be empty&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="-1146597565">${Response200}</stringProp>
@@ -9789,31 +10757,6 @@ testt test</stringProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Referer" elementType="Header">
-                <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">http://regalpaycloudfilexchangeapiserver-test.pgzemykzam.us-west-2.elasticbeanstalk.com/swagger/index.html</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Language" elementType="Header">
-                <stringProp name="Header.name">Accept-Language</stringProp>
-                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
-              </elementProp>
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
-              </elementProp>
-              <elementProp name="Cache-Control" elementType="Header">
-                <stringProp name="Header.name">Cache-Control</stringProp>
-                <stringProp name="Header.value">no-cache</stringProp>
-              </elementProp>
-              <elementProp name="Accept" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Delimited file settings with NULL &apos;delimiter&apos;" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -9823,7 +10766,7 @@ testt test</stringProp>
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
           &quot;delimiter&quot;:NULL,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;SingleQuote&quot;&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char1}&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -9844,16 +10787,6 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146537983">${Response400}</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">true</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="Referer" elementType="Header">
@@ -9879,6 +10812,26 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1625527539"> &quot;error&quot;: &quot;DelimiterDTO is null&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146537983">${Response400}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Delimited file settings with NULL &apos;EscapeCharacter&apos;" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -9887,7 +10840,7 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Comma&quot;,&#xd;
+          &quot;delimiter&quot;:&quot;${DCOMMA}&quot;,&#xd;
          &quot;EscapeCharacter&quot;:NULL&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -9909,16 +10862,6 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146537983">${Response400}</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">true</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="Referer" elementType="Header">
@@ -9944,6 +10887,26 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1625527539"> &quot;error&quot;: &quot;DelimiterDTO is null&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146537983">${Response400}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Delimited file settings with invalid ProfileID" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -9952,7 +10915,7 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Comma&quot;,&#xd;
+          &quot;delimiter&quot;:&quot;${DTAB}&quot;,&#xd;
          &quot;EscapeCharacter&quot;:&quot;TestNot&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -9974,16 +10937,6 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146537983">${Response400}</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">true</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="Referer" elementType="Header">
@@ -10009,6 +10962,26 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="192322837">&quot;error&quot;: &quot;ProfileID is null or not a guid &quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146537983">${Response400}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Delimited file settings with Empty ProfileID" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -10017,8 +10990,8 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Comma&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;SingleQuote&quot;&#xd;
+          &quot;delimiter&quot;:&quot;${DTAB}&quot;,&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char1}&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -10039,16 +11012,6 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146537983">${Response400}</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">true</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="Referer" elementType="Header">
@@ -10074,6 +11037,26 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="192322837">&quot;error&quot;: &quot;ProfileID is null or not a guid &quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146537983">${Response400}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Delimited file settings with NULL ProfileID" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -10082,8 +11065,8 @@ testt test</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Comma&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;SingleQuote&quot;&#xd;
+          &quot;delimiter&quot;:&quot;${DTAB}&quot;,&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char1}&quot;&#xd;
  }  </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -10104,16 +11087,6 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146537983">${Response400}</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">true</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="Referer" elementType="Header">
@@ -10139,6 +11112,26 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="192322837">&quot;error&quot;: &quot;ProfileID is null or not a guid &quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146537983">${Response400}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Update Delimited file settings with Wrong JSON" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -10146,10 +11139,14 @@ testt test</stringProp>
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value"> {&#xd;
-          &quot;delimiter&quot;:&quot;Comma&quot;&#xd;
-         &quot;EscapeCharacter&quot;:&quot;SingleQuote&quot;&#xd;
- }  </stringProp>
+                <stringProp name="Argument.value">{&#xd;
+  iiouhfrgysdhfjcjfuhvwsdnckld&#xd;
+  kljndhlcbvsjkkjf ncvxcjbvsdjfndvcnnvsf&#xd;
+  mjhvfgdhavbdnfjlnbgrhjsdvfhjkfbnnfsd&#xd;
+  nfhjewefgdhjkkgfrjkbhDHFBKHFA&#xd;
+  MNJHFVGKDSGHHFJDLABVBSDJHBHFKJDAFKVDAF&#xd;
+  FMNHJFSAGVJKFDNVBHLFXBVJCNBBNJKN &#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -10193,6 +11190,16 @@ testt test</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1625527539"> &quot;error&quot;: &quot;DelimiterDTO is null&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
             <collectionProp name="Asserion.test_strings">
@@ -10258,9 +11265,19 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146537983">${Response400}</stringProp>
+              <stringProp name="801204969"> &quot;error&quot;: &quot;Escape character/Delimiter string should not be empty&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146597565">${Response200}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
@@ -10322,6 +11339,16 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1625527539"> &quot;error&quot;: &quot;DelimiterDTO is null&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="-1146537983">${Response400}</stringProp>
@@ -10361,10 +11388,6 @@ testt test</stringProp>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
-              <elementProp name="Referer" elementType="Header">
-                <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">http://regalpaycloudfilexchangeapiserver-test.pgzemykzam.us-west-2.elasticbeanstalk.com/swagger/index.html</stringProp>
-              </elementProp>
               <elementProp name="Accept-Language" elementType="Header">
                 <stringProp name="Header.name">Accept-Language</stringProp>
                 <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
@@ -10507,9 +11530,9 @@ testt test</stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146537983">${Response400}</stringProp>
+              <stringProp name="-1146597565">${Response200}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
@@ -10597,6 +11620,16 @@ testt test</stringProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="192322837">&quot;error&quot;: &quot;ProfileID is null or not a guid &quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to get details of particular profile with Invalid ProfileID" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
@@ -10651,6 +11684,16 @@ testt test</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="192322837">&quot;error&quot;: &quot;ProfileID is null or not a guid &quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
           <hashTree/>
         </hashTree>
         <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="DELETE Profile" enabled="false">
@@ -10945,14 +11988,23 @@ I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="1501365423">&quot;content&quot;:</stringProp>
-              <stringProp name="393520667">&quot;Response&quot;:</stringProp>
+              <stringProp name="-1299747586">  &quot;response&quot;: &quot;Content Uploaded&quot;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146597565">${Response200}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
@@ -11017,14 +12069,23 @@ S|233333333|2121212121|1234123456|17-12-2018|$12022222|Robert Jr.|Important data
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="1501365423">&quot;content&quot;:</stringProp>
-              <stringProp name="393520667">&quot;Response&quot;:</stringProp>
+              <stringProp name="-1299747586">  &quot;response&quot;: &quot;Content Uploaded&quot;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146597565">${Response200}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
@@ -11088,14 +12149,23 @@ I	134555545	1930000328	2334	10-10-18	$4400	Deo	&#xd;
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="1501365423">&quot;content&quot;:</stringProp>
-              <stringProp name="393520667">&quot;Response&quot;:</stringProp>
+              <stringProp name="-1299747586">  &quot;response&quot;: &quot;Content Uploaded&quot;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1146597565">${Response200}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
@@ -11153,13 +12223,23 @@ I	134555545	1930000328	2334	10-10-18	$4400	Deo	&#xd;
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code400" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code200" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1146537983">${Response400}</stringProp>
+              <stringProp name="-1146597565">${Response200}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
             <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Message" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="716652935"> &quot;requestStatus&quot;: 0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
@@ -11227,6 +12307,16 @@ I	134555545	1930000328	2334	10-10-18	$4400	Deo	&#xd;
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="831976451">&quot;error&quot;: &quot;FileUploadDTO is null&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Upload File with Invalid FileContent" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -11288,6 +12378,16 @@ I	134555545	1930000328	2334	10-10-18	$4400	Deo	&#xd;
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
             <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="831976451">&quot;error&quot;: &quot;FileUploadDTO is null&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
@@ -11360,6 +12460,26 @@ I,,3154456789,2334,11-09-2018,4400,Deo,Test&quot;&#xd;
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="192322837">&quot;error&quot;: &quot;ProfileID is null or not a guid &quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="192322837">&quot;error&quot;: &quot;ProfileID is null or not a guid &quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Upload File with NULL ProfileID" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -11426,6 +12546,26 @@ I,,3154456789,2334,11-09-2018,4400,Deo,Test&quot;&#xd;
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
             <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="192322837">&quot;error&quot;: &quot;ProfileID is null or not a guid &quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="192322837">&quot;error&quot;: &quot;ProfileID is null or not a guid &quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
@@ -11498,6 +12638,16 @@ I,,3154456789,2334,11-09-2018,4400,Deo,Test&quot;&#xd;
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="192322837">&quot;error&quot;: &quot;ProfileID is null or not a guid &quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Upload File with Wrong JSON" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -11567,6 +12717,16 @@ I,,3154456789,2334,11-09-2018,4400,Deo,Test&#xd;
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="831976451">&quot;error&quot;: &quot;FileUploadDTO is null&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Upload File empty request" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -11631,6 +12791,16 @@ I,,3154456789,2334,11-09-2018,4400,Deo,Test&#xd;
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="6309128">&quot;error&quot;: &quot;FileContent is null&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="N: Verify user is not able to Upload File when request is not in JSON" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -11692,6 +12862,16 @@ testt test</stringProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
             <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="831976451">&quot;error&quot;: &quot;FileUploadDTO is null&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
