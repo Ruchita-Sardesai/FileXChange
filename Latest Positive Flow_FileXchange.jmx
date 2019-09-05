@@ -135,23 +135,18 @@
             <stringProp name="Argument.value">Description for the Create Output File Type</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="invalid" elementType="Argument">
-            <stringProp name="Argument.name">invalid</stringProp>
-            <stringProp name="Argument.value">@!#$@%$@#^$%$&amp;%^*&gt;SA&lt;&quot;~{!}@{ &quot;?!@&gt;!&quot;#!@}$#{@!|$}#@%$_+&amp;%)^*&amp;^*%?&lt;?&lt;@:&quot;!~@~!|@}!@|@_#%#$)^+$%}&amp;dfnkvnfxknvfs,bs,ac</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
           <elementProp name="UpdateDesc" elementType="Argument">
             <stringProp name="Argument.name">UpdateDesc</stringProp>
             <stringProp name="Argument.value">Description for the Update Output File Type</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="delimiter_Name" elementType="Argument">
-            <stringProp name="Argument.name">delimiter_Name</stringProp>
-            <stringProp name="Argument.value">Comma</stringProp>
+          <elementProp name="Escape_char1" elementType="Argument">
+            <stringProp name="Argument.name">Escape_char1</stringProp>
+            <stringProp name="Argument.value">SingleQuote</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="Escape_char" elementType="Argument">
-            <stringProp name="Argument.name">Escape_char</stringProp>
+          <elementProp name="Escape_char2" elementType="Argument">
+            <stringProp name="Argument.name">Escape_char2</stringProp>
             <stringProp name="Argument.value">DoubleQuote</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -2001,8 +1996,8 @@ catch (Throwable ex) {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-          &quot;delimiter&quot;:&quot;${delimiter_Name}&quot;,&#xd;
-         &quot;EscapeCharacter&quot;:&quot;${Escape_char}&quot;&#xd;
+          &quot;delimiter&quot;:&quot;${DTAB}&quot;,&#xd;
+         &quot;EscapeCharacter&quot;:&quot;${Escape_char1}&quot;&#xd;
         } </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
