@@ -6620,12 +6620,12 @@ ${__setProperty(row5value, ${row5value})};</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;fileContent&quot;: &quot;payment_type,IFSC_No,account_No,CheckNO,issue_date,amount,payee_Name,note&#xd;
-I,123456789,3154456789,362564230,01-10-2018,240.19$,Ali Jacob,Urgent&#xd;
-I,126666345,3154456789,362564230,09-09-2018,7400$,Aliajsdjfjasdhjfhj,Urgent&#xd;
-V,111112745,3154456789,362564230,09-09-2018,1400$,,Urgent&#xd;
-S,133332845,3154456789,362564230,11-09-2018,5400$,Jacob,Urgent&#xd;
-I,363636219,3154456789,362564230,11-09-2018,4400$,Deo,Test&quot;&#xd;
+  &quot;fileContent&quot;: &quot;Record_Type,Routing_Number,Account_Number,Check_Number,Issue_Date,Amount,Payee_name,Notes&#xd;
+I,123456789,3154456789,362564230,01-10-2018,240.19,Ali Jacob,Urgent&#xd;
+I,126666345,3154456789,362564230,09-09-2018,7400,Aliajsdjfjasdhjfhj,Urgent&#xd;
+V,111112745,3154456789,362564230,09-09-2018,1400,,Urgent&#xd;
+S,133332845,3154456789,362564230,11-09-2018,5400,Jacob,Urgent&#xd;
+I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -6707,12 +6707,12 @@ I,363636219,3154456789,362564230,11-09-2018,4400$,Deo,Test&quot;&#xd;
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;fileContent&quot;: &quot;payment_type,IFSC_No,account_No,CheckNO,issue_date,amount,payee_Name,note&#xd;
+  &quot;fileContent&quot;: &quot;Record_Type,Routing_Number,Account_Number,Check_Number,Issue_Date,Amount,Payee_name,Notes&#xd;
 I,123456789,3154456789,362564230,01-10-2018,240.19$,Ali Jacob,Urgent&#xd;
-I,126666345,3154456789,362564230,09-09-2018,7400$,Aliajsdjfjasdhjfhj,Urgent&#xd;
-V,111112745,3154456789,362564230,09-09-2018,1400$,,Urgent&#xd;
-S,133332845,3154456789,362564230,11-09-2018,5400$,Jacob,Urgent&#xd;
-I,363636219,3154456789,362564230,11-09-2018,4400$,Deo,Test&quot;&#xd;
+I,126666345,3154456789,362564230,09-09-2018,7740$,Aliajsdjfjasdhjfhj,Urgent&#xd;
+V,111112745,3154456789,362564230,09-09-2018,1400,,Urgent&#xd;
+S,133332845,3154456789,362564230,11-09-2018,5400,Jacob,Urgent&#xd;
+I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -6860,9 +6860,11 @@ I,363636219,3154456789,362564230,11-09-2018,4400$,Deo,Test&quot;&#xd;
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validate the message" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-2089140847">&quot;error&quot;: &quot;Default value for this mapping cannot be added&quot;</stringProp>
+              <stringProp name="-340323263">response</stringProp>
+              <stringProp name="1402947425">requestStatus</stringProp>
+              <stringProp name="49">1</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -6878,12 +6880,12 @@ I,363636219,3154456789,362564230,11-09-2018,4400$,Deo,Test&quot;&#xd;
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;fileContent&quot;: &quot;payment_type,IFSC_No,account_No,CheckNO,issue_date,amount,payee_Name,note&#xd;
-I,123456789,3154456789,362564230,,240.19$,Ali Jacob,Urgent&#xd;
-I,126666345,3154456789,362564230,09-09-2018,7400$,Aliajsdjfjasdhjfhj,Urgent&#xd;
-V,111112745,3154456789,362564230,09-09-2018,1400$,,Urgent&#xd;
-S,133332845,3154456789,362564230,11-09-2018,5400$,Jacob,Urgent&#xd;
-I,363636219,3154456789,362564230,11-09-2018,4400$,Deo,Test&quot;&#xd;
+  &quot;fileContent&quot;: &quot;Record_Type,Routing_Number,Account_Number,Check_Number,Issue_Date,Amount,Payee_name,Notes&#xd;
+I,123456789,3154456789,362564230,01-10-2018,240.19,Ali Jacob,Urgent&#xd;
+I,126666345,3154456789,362564230,09-09-2018,7400,Aliajsdjfjasdhjfhj,Urgent&#xd;
+V,111112745,3154456789,362564230,09-09-2018,1400,,Urgent&#xd;
+S,133332845,3154456789,362564230,11-09-2018,5400,Jacob,Urgent&#xd;
+I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -6965,12 +6967,12 @@ I,363636219,3154456789,362564230,11-09-2018,4400$,Deo,Test&quot;&#xd;
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;fileContent&quot;: &quot;payment_type,IFSC_No,account_No,CheckNO,issue_date,amount,payee_Name,note&#xd;
-I,123456789,3154456789,362564230,01-10-2018,240.19$,Ali Jacob,Urgent&#xd;
-I,126666345,3154456789,362564230,09-09-2018,7400$,Aliajsdjfjasdhjfhj,Urgent&#xd;
-V,111112745,3154456789,362564230,09-09-2018,1400$,,Urgent&#xd;
-S,133332845,3154456789,362564230,11-09-2018,5400$,Jacob,Urgent&#xd;
-I,363636219,3154456789,362564230,11-09-2018,4400$,Deo,Test&quot;&#xd;
+  &quot;fileContent&quot;: &quot;Record_Type,Routing_Number,Account_Number,Check_Number,Issue_Date,Amount,Payee_name,Notes&#xd;
+I,123456789,3154456789,362564230,01-10-2018,240.19,Ali Jacob,Urgent&#xd;
+I,126666345,3154456789,362564230,09-09-2018,7400,Aliajsdjfjasdhjfhj,Urgent&#xd;
+V,111112745,3154456789,362564230,09-09-2018,1400,,Urgent&#xd;
+S,133332845,3154456789,362564230,11-09-2018,5400,Jacob,Urgent&#xd;
+I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -7375,8 +7377,8 @@ I,,3154456789,11-09-2018,4400,Deo,Test&quot;&#xd;
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;fileContent&quot;: &quot;payment_type,IFSC_No,account_No,CheckNO,issue_date,amount,payee_Name,note&#xd;
-I,123456789,TESTST,362564230,01-10-2018,240.19,Ali Jacob,Urgent&#xd;
+  &quot;fileContent&quot;: &quot;Record_Type,Routing_Number,Account_Number,Check_Number,Issue_Date,Amount,Payee_name,Notes&#xd;
+I,123456789,3154456789,362564230,01-10-2018,240.19,Ali Jacob,Urgent&#xd;
 I,126666345,3154456789,362564230,09-09-2018,7400,Aliajsdjfjasdhjfhj,Urgent&#xd;
 V,111112745,3154456789,362564230,09-09-2018,1400,,Urgent&#xd;
 S,133332845,3154456789,362564230,11-09-2018,5400,Jacob,Urgent&#xd;
@@ -7462,10 +7464,10 @@ I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;fileContent&quot;: &quot;payment_type,IFSC_No,account_No,CheckNO,issue_date,amount,payee_Name,note&#xd;
-,,,,,,Ali Jlksadlasjdlkasjdlkasjdlksajdlkasjdlkaksjdlkasjdklasjdacob,Urgentjsdkskdjskdksjdksjdksjdksjdksjdksjdksjdksjdksjdksjdk&#xd;
-I,126666345,3154456789,362564230,09-09-2018,7400,Aliajsdjfjasdhjfhj,Urgent&#xd;
-V,111112745,3154456789,362564230,09-09-2018,1400,,Urgent&#xd;
+  &quot;fileContent&quot;: &quot;Record_Type,Routing_Number,Account_Number,Check_Number,Issue_Date,Amount,Payee_name,Notes&#xd;
+I,123456789,3154456789,362564230,01-10-2018,240.19,Ali Jacob,Urgent&#xd;
+,,,362564230,09-09-2018,7400,Aliajsdjfjasdhjfhj,Urgent&#xd;
+V,111112745,,,,1400,,Urgent&#xd;
 S,133332845,3154456789,362564230,11-09-2018,5400,Jacob,Urgent&#xd;
 I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
 }</stringProp>
@@ -7628,10 +7630,10 @@ I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;fileContent&quot;: &quot;payment_type,IFSC_No,account_No,CheckNO,issue_date,amount,payee_Name,note&#xd;
-I,123456789,TESTST,362564230,01-10-2018,,Ali Jacob,Urgent&#xd;
-I,126666345,3154456789,362564230,09-09-2018,7474,Aliajsdjfjasdhjfhj,Urgent&#xd;
-V,111112745,3154456789,362564230,09-09-2018,1400,,Urgent&#xd;
+  &quot;fileContent&quot;: &quot;Record_Type,Routing_Number,Account_Number,Check_Number,Issue_Date,Amount,Payee_name,Notes&#xd;
+I,123456789,3154456789,362564230,01-10-2018,240.19,Ali Jacob,Urgent&#xd;
+I,126666345,3154456789,362564230,09-09-2018,7400,Aliajsdjfjasdhjfhj,Urgent&#xd;
+V,111112745,3154456789,362564230,09-09-2018,,,Urgent&#xd;
 S,133332845,3154456789,362564230,11-09-2018,5400,Jacob,Urgent&#xd;
 I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
 }</stringProp>
@@ -7696,7 +7698,7 @@ I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">true</boolProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
@@ -7792,12 +7794,12 @@ I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;fileContent&quot;: &quot;payment_type,IFSC_No,account_No,CheckNO,issue_date,amount,payee_Name,note&#xd;
-I,123456789,3154456789,362564230,,240.19$,Ali Jacob,Urgent&#xd;
-I,126666345,3154456789,362564230,,7400$,Aliajsdjfjasdhjfhj,Urgent&#xd;
-V,111112745,3154456789,362564230,,1400$,,Urgent&#xd;
-S,133332845,3154456789,362564230,,5400$,Jacob,Urgent&#xd;
-I,363636219,3154456789,362564230,,4400$,Deo,Test&quot;&#xd;
+  &quot;fileContent&quot;: &quot;Record_Type,Routing_Number,Account_Number,Check_Number,Issue_Date,Amount,Payee_name,Notes&#xd;
+I,123456789,3154456789,362564230,01-10-2018,240.19,Ali Jacob,Urgent&#xd;
+I,126666345,3154456789,362564230,09-09-2018,7400,Aliajsdjfjasdhjfhj,Urgent&#xd;
+V,111112745,3154456789,362564230,09-09-2018,1400,,Urgent&#xd;
+S,133332845,3154456789,362564230,11-09-2018,5400,Jacob,Urgent&#xd;
+I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
