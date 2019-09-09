@@ -1839,7 +1839,7 @@ catch (Throwable ex) {
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="DELETE Output File fields" enabled="true">
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="DELETE Output File fields" enabled="false">
           <stringProp name="filename"></stringProp>
           <stringProp name="parameters"></stringProp>
           <boolProp name="resetInterpreter">false</boolProp>
@@ -3033,7 +3033,7 @@ catch (Throwable ex) {
               <stringProp name="-22909445">inputFieldName</stringProp>
               <stringProp name="-1005400924">profileId</stringProp>
               <stringProp name="1274339188">outputFieldId</stringProp>
-              <stringProp name="1448170540">outputFeildName</stringProp>
+              <stringProp name="574429860">outputFieldName</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -3123,7 +3123,7 @@ catch (Throwable ex) {
               <stringProp name="-22909445">inputFieldName</stringProp>
               <stringProp name="-1005400924">profileId</stringProp>
               <stringProp name="1274339188">outputFieldId</stringProp>
-              <stringProp name="1448170540">outputFeildName</stringProp>
+              <stringProp name="574429860">outputFieldName</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
