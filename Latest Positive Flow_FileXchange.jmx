@@ -3261,18 +3261,6 @@ catch (Throwable ex) {
           <stringProp name="script"></stringProp>
         </BeanShellPreProcessor>
         <hashTree/>
-        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config for MapID" enabled="false">
-          <stringProp name="delimiter">,</stringProp>
-          <stringProp name="fileEncoding"></stringProp>
-          <stringProp name="filename">${FilePath1}</stringProp>
-          <boolProp name="ignoreFirstLine">false</boolProp>
-          <boolProp name="quotedData">false</boolProp>
-          <boolProp name="recycle">false</boolProp>
-          <stringProp name="shareMode">shareMode.thread</stringProp>
-          <boolProp name="stopThread">true</boolProp>
-          <stringProp name="variableNames">MapID1</stringProp>
-        </CSVDataSet>
-        <hashTree/>
         <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Sampler for Mapping ID" enabled="true">
           <stringProp name="BeanShellSampler.query">import org.apache.commons.io.FileUtils;    //necessary import
 import org.apache.jmeter.gui.GuiPackage;
@@ -4395,7 +4383,7 @@ catch (Throwable ex) {
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;fileContent&quot;: &quot;payment_type,IFSC_No,account_No,CheckNO,issue_date,amount,payee_Name,note&#xd;
-I,123456789,3154456789,362564230,01/1/2018,240.19,Ali Jacob,Urgent&#xd;
+I,123456789,3154456789,362564230,,240.19,Ali Jacob,Urgent&#xd;
 I,126666345,3154456789,362564230,09/09/2018,7400,Aliajsdjfjasdhjfhj,Urgent&#xd;
 V,111112745,3154456789,362564230,09/09/2018,1400,,Urgent&#xd;
 S,133332845,3154456789,362564230,11/09/2018,5400,Jacob,Urgent&#xd;
