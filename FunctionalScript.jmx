@@ -392,7 +392,9 @@ try {
      print(&quot;MappingDefaultSetting already exist for this mapping&quot;); //63st row
      print(&quot;There is no changes in data&quot;); //64st row
      print(&quot;OutputFileField already mapped so only Name field updated successfully&quot;); //65st row
-     
+     print(&quot;Mandatory Field&apos;s Value Missing : Issue_Date&quot;); //66st row
+                 
+
      
 
      
@@ -488,7 +490,7 @@ String row63 = lines.get(62);
 String row64 = lines.get(63);
 String row65 = lines.get(64);
 String row66 = lines.get(65);
-
+String row67 = lines.get(66);
 
 //String[] cells = row3.split(&quot;,&quot;);    //split row 10 into cells using comma as delimiter
 //String cell0 = cells[0];    // get value of 4th column, counting is zero-based
@@ -624,7 +626,8 @@ log.info(&quot;row value = &quot; + row65);    // print the value into jmeter.lo
 vars.put(&quot;messageStatus_48&quot;, row65);
 log.info(&quot;row value = &quot; + row66);    // print the value into jmeter.log file
 vars.put(&quot;messageStatus_49&quot;, row66);
-
+log.info(&quot;row value = &quot; + row67);    // print the value into jmeter.log file
+vars.put(&quot;messageStatus_50&quot;, row67);
 
 
 
@@ -710,7 +713,8 @@ ${__setProperty(messageStatus_45, ${messageStatus_45})};
 ${__setProperty(messageStatus_46, ${messageStatus_46})};
 ${__setProperty(messageStatus_47, ${messageStatus_47})};
 ${__setProperty(messageStatus_48, ${messageStatus_48})};
-${__setProperty(messageStatus_49, ${messageStatus_49})};</stringProp>
+${__setProperty(messageStatus_49, ${messageStatus_49})};
+${__setProperty(messageStatus_50, ${messageStatus_50})};</stringProp>
           <stringProp name="BeanShellAssertion.filename"></stringProp>
           <stringProp name="BeanShellAssertion.parameters"></stringProp>
           <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
@@ -918,14 +922,14 @@ try {
      f = new FileOutputStream(path+vars.get(&quot;FilePath&quot;), false); 
      p = new PrintStream(f); 
      this.interpreter.setOut(p); 
-     print(&quot;Record_Type&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot; +&quot;,&quot;+&quot;true&quot;);
-     print(&quot;Routing_Number&quot;+&quot;,&quot;+&quot;2&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;9&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot; +&quot;,&quot;+&quot;true&quot;);
-     print(&quot;Account_Number&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;10&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;false&quot;);
-     print(&quot;Check_Number&quot;+&quot;,&quot;+&quot;4&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;10&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);
-     print(&quot;Issue_Date&quot;+&quot;,&quot;+&quot;6&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;0&quot;+&quot;,&quot;+&quot;2&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);
-     print(&quot;Amount&quot;+&quot;,&quot;+&quot;5&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;90&quot;+&quot;,&quot;+&quot;4&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);     
-     print(&quot;Payee_name&quot;+&quot;,&quot;+&quot;7&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;20&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);
-     print(&quot;Notes&quot;+&quot;,&quot;+&quot;8&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;20&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;);
+     print(&quot;Record_Type&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot; +&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;0&quot;);
+     print(&quot;Routing_Number&quot;+&quot;,&quot;+&quot;2&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;9&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot; +&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;0&quot;);
+     print(&quot;Account_Number&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;10&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;0&quot;);
+     print(&quot;Check_Number&quot;+&quot;,&quot;+&quot;4&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;10&quot;+&quot;,&quot;+&quot;1&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;0&quot;);
+     print(&quot;Issue_Date&quot;+&quot;,&quot;+&quot;6&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;0&quot;+&quot;,&quot;+&quot;2&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;1&quot;);
+     print(&quot;Amount&quot;+&quot;,&quot;+&quot;5&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;90&quot;+&quot;,&quot;+&quot;4&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;0&quot;);     
+     print(&quot;Payee_name&quot;+&quot;,&quot;+&quot;7&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;20&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;0&quot;);
+     print(&quot;Notes&quot;+&quot;,&quot;+&quot;8&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;20&quot;+&quot;,&quot;+&quot;3&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;true&quot;+&quot;,&quot;+&quot;false&quot;+&quot;,&quot;+&quot;0&quot;);
      
      f.close();
 
@@ -953,7 +957,7 @@ catch (Throwable ex) {
             <boolProp name="recycle">false</boolProp>
             <stringProp name="shareMode">shareMode.thread</stringProp>
             <boolProp name="stopThread">true</boolProp>
-            <stringProp name="variableNames">name,order_ID,Mandatory,length,type,custV,defV,fxdwidth</stringProp>
+            <stringProp name="variableNames">name,order_ID,Mandatory,length,type,custV,defV,fxdwidth,DateFormat</stringProp>
           </CSVDataSet>
           <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Step3:CREATE Output file Field " enabled="true">
@@ -970,7 +974,7 @@ catch (Throwable ex) {
   &quot;type&quot;: ${type},&#xd;
   &quot;isCustomValueAllowed&quot;: ${custV},&#xd;
   &quot;isDefaultValueAllowed&quot;: ${defV},&#xd;
-   &quot;DateFormatId&quot;:1,&#xd;
+   &quot;DateFormatId&quot;:${DateFormat},&#xd;
   &quot;isFixedWidth&quot;: ${fxdwidth}&#xd;
 }</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
@@ -3096,14 +3100,12 @@ I,,3154456789,11-09-2018,4400,Deo,Test&quot;&#xd;
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-340323263">response</stringProp>
-              <stringProp name="1402947425">requestStatus</stringProp>
-              <stringProp name="49">1</stringProp>
+              <stringProp name="-1514160316">&quot;${__property(requestStatus)}&quot;: 1</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">16</intProp>
+            <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
@@ -3173,14 +3175,12 @@ I,,3154456789,11-09-2018,4400,Deo,Test&quot;&#xd;
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-340323263">response</stringProp>
-              <stringProp name="1402947425">requestStatus</stringProp>
-              <stringProp name="49">1</stringProp>
+              <stringProp name="-1514160316">&quot;${__property(requestStatus)}&quot;: 1</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">16</intProp>
+            <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
@@ -3256,14 +3256,12 @@ S|233333333|2121212121|1234123456|17-12-2018|$12022222|Robert Jr.|Important data
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-340323263">response</stringProp>
-              <stringProp name="1402947425">requestStatus</stringProp>
-              <stringProp name="49">1</stringProp>
+              <stringProp name="-1514160316">&quot;${__property(requestStatus)}&quot;: 1</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">16</intProp>
+            <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
@@ -3320,6 +3318,16 @@ S|233333333|2121212121|1234123456|17-12-2018|$12022222|Robert Jr.|Important data
               </elementProp>
             </collectionProp>
           </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1514160316">&quot;${__property(requestStatus)}&quot;: 1</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
           <hashTree/>
         </hashTree>
         <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Tab delimited file data is not getting stored properly in the DB while Uploading " enabled="false">
@@ -3717,6 +3725,16 @@ I	134555545	1930000328	2334	10-10-18	$4400	Deo	&#xd;
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1514160316">&quot;${__property(requestStatus)}&quot;: 1</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
@@ -8011,11 +8029,11 @@ I,,3154456789,11-09-2018,4400,Deo,Test&quot;&#xd;
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;fileContent&quot;: &quot;Record_Type,Routing_Number,Account_Number,Check_Number,Issue_Date,Amount,Payee_name,Notes&#xd;
-I,123456789,3154456789,362564230,01-10-2018,240.19,Ali Jacob,Urgent&#xd;
-I,126666345,3154456789,362564230,09-09-2018,7400,Aliajsdjfjasdhjfhj,Urgent&#xd;
-V,111112745,3154456789,362564230,09-09-2018,1400,,Urgent&#xd;
-S,133332845,3154456789,362564230,11-09-2018,5400,Jacob,Urgent&#xd;
-I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
+I,123456789,3154456789,362564230,01/10/2018,240.19,Ali Jacob,Urgent&#xd;
+I,126666345,3154456789,362564230,09/09/2018,7400,Aliajsdjfjasdhjfhj,Urgent&#xd;
+V,111112745,3154456789,362564230,09/09/2018,1400,,Urgent&#xd;
+S,133332845,3154456789,362564230,11/09/2018,5400,Jacob,Urgent&#xd;
+I,363636219,3154456789,362564230,11/09/2018,4400,Deo,Test&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -8359,7 +8377,7 @@ I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
           <stringProp name="script"></stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="F: Submit MAP: Verify the Date is displaying in the Output File date format." enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="F: Submit MAP: Verify user is getting MANDATORY Validation message for Issue Date" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -8419,7 +8437,7 @@ I,363636219,3154456789,362564230,11/09/2018,4400,Deo,Test&quot;&#xd;
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Date Format check" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="846612261">09/09/2018</stringProp>
+              <stringProp name="-531589485">&quot;${__property(messageStatus_50)}&quot;</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -8736,7 +8754,7 @@ I,,3154456789,11-09-2018,4400,Deo,Test&quot;&#xd;
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validation Check" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="111838239">Mandatory Field&apos;s</stringProp>
+              <stringProp name="-393146085">${__property(messageStatus_38)}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -8823,7 +8841,7 @@ I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validation message should not be  &quot;Default Value is not Numeric&quot;" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-199584746">&quot;${__property(messageStatus_25)}&quot; : Account_Number</stringProp>
+              <stringProp name="-130849208">${__property(messageStatus_25)} : Account_Number</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -9177,7 +9195,7 @@ I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="F(M): Submit MAP: Check &quot;defualttocurrentdate&quot; is refelecting" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="F(M): Submit MAP: Check &quot;defualttocurrentdate&quot; is refelecting and showing in Output file field&apos;s date format" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -9348,7 +9366,7 @@ I,363636219,3154456789,362564230,11/09/2018,4400,Deo,Test&quot;&#xd;
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="(BUG-1148)F: Valid-Map API is giving validation message when there is no delimiter file setting" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="F: Valid-Map API is giving validation message when there is no delimiter file setting" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -10062,7 +10080,7 @@ I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validation Check" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="1611057593">Mandatory</stringProp>
+              <stringProp name="-393146085">${__property(messageStatus_38)}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -10751,7 +10769,7 @@ I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="(BUG-1148)F(M): Verify SubitMap API with all defualt value and no mapping" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="(BUG-1146)F(M): Verify SubitMap API with all defualt value and no mapping" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
