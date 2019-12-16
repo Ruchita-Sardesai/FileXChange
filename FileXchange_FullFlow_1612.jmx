@@ -203,6 +203,46 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Client level User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="Client_URL" elementType="Argument">
+            <stringProp name="Argument.name">Client_URL</stringProp>
+            <stringProp name="Argument.value">/api/iam/v1/clients</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Auth" elementType="Argument">
+            <stringProp name="Argument.name">Auth</stringProp>
+            <stringProp name="Argument.value">/connect/authorize</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="callback" elementType="Argument">
+            <stringProp name="Argument.name">callback</stringProp>
+            <stringProp name="Argument.value">/auth-callback</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Access" elementType="Argument">
+            <stringProp name="Argument.name">Access</stringProp>
+            <stringProp name="Argument.value">/connect/token</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Username_1" elementType="Argument">
+            <stringProp name="Argument.name">Username_1</stringProp>
+            <stringProp name="Argument.value">FLXadmin1@regal-us.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Password_1" elementType="Argument">
+            <stringProp name="Argument.name">Password_1</stringProp>
+            <stringProp name="Argument.value">Test@1234</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="RedirectUrl" elementType="Argument">
+            <stringProp name="Argument.name">RedirectUrl</stringProp>
+            <stringProp name="Argument.value">http://localhost:4200/auth-callback</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
@@ -7353,41 +7393,6 @@ test</stringProp>
         <longProp name="ThreadGroup.end_time">1571294665000</longProp>
       </ThreadGroup>
       <hashTree>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Client level User Defined Variables" enabled="true">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="Client_URL" elementType="Argument">
-              <stringProp name="Argument.name">Client_URL</stringProp>
-              <stringProp name="Argument.value">/api/iam/v1/clients</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="Auth" elementType="Argument">
-              <stringProp name="Argument.name">Auth</stringProp>
-              <stringProp name="Argument.value">/connect/authorize</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="callback" elementType="Argument">
-              <stringProp name="Argument.name">callback</stringProp>
-              <stringProp name="Argument.value">/auth-callback</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="Access" elementType="Argument">
-              <stringProp name="Argument.name">Access</stringProp>
-              <stringProp name="Argument.value">/connect/token</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="Username_1" elementType="Argument">
-              <stringProp name="Argument.name">Username_1</stringProp>
-              <stringProp name="Argument.value">FLXadmin1@regal-us.com</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="Password_1" elementType="Argument">
-              <stringProp name="Argument.name">Password_1</stringProp>
-              <stringProp name="Argument.value">Test@1234</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-        </Arguments>
-        <hashTree/>
         <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="Token Generation for Tenant-1" enabled="false">
           <stringProp name="filename"></stringProp>
           <stringProp name="parameters"></stringProp>
