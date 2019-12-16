@@ -375,7 +375,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="client_id" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">jMeter</stringProp>
+                <stringProp name="Argument.value">FileXchange_TenantLevel</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">client_id</stringProp>
@@ -396,7 +396,7 @@
               </elementProp>
               <elementProp name="scope" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">iam:add:clients iam:manage:application-roles iam:manage:application-users iam:manage:clients iam:manage:org iam:manage:organizations iam:manage:org-roles iam:manage:org-users iam:manage:resources iam:manage:system-roles iam:manage:system-users iam:manage:tenant iam:manage:tenant-roles iam:manage:tenants iam:manage:tenant-users iam:view:application-roles iam:view:application-users iam:view:clients iam:view:org iam:view:organizations iam:view:org-roles iam:view:org-users iam:view:resources iam:view:system-roles iam:view:system-users iam:view:tenant iam:view:tenant-roles iam:view:tenants iam:view:tenant-users</stringProp>
+                <stringProp name="Argument.value">flx:manage:profiles flx:view:profiles</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">scope</stringProp>
@@ -477,7 +477,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="client_id" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">jMeter</stringProp>
+                <stringProp name="Argument.value">FileXchange_TenantLevel</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">client_id</stringProp>
@@ -12209,7 +12209,7 @@ I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
             <collectionProp name="Arguments.arguments">
               <elementProp name="client_id" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">jMeter</stringProp>
+                <stringProp name="Argument.value">FileXchange_TenantLevel</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">client_id</stringProp>
@@ -12230,7 +12230,7 @@ I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
               </elementProp>
               <elementProp name="scope" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">iam:add:clients iam:manage:application-roles iam:manage:application-users iam:manage:clients iam:manage:org iam:manage:organizations iam:manage:org-roles iam:manage:org-users iam:manage:resources iam:manage:system-roles iam:manage:system-users iam:manage:tenant iam:manage:tenant-roles iam:manage:tenants iam:manage:tenant-users iam:view:application-roles iam:view:application-users iam:view:clients iam:view:org iam:view:organizations iam:view:org-roles iam:view:org-users iam:view:resources iam:view:system-roles iam:view:system-users iam:view:tenant iam:view:tenant-roles iam:view:tenants iam:view:tenant-users</stringProp>
+                <stringProp name="Argument.value">flx:manage:profiles flx:view:profiles</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">scope</stringProp>
@@ -12311,7 +12311,7 @@ I,363636219,3154456789,362564230,11-09-2018,4400,Deo,Test&quot;&#xd;
             <collectionProp name="Arguments.arguments">
               <elementProp name="client_id" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">jMeter</stringProp>
+                <stringProp name="Argument.value">FileXchange_TenantLevel</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">client_id</stringProp>
