@@ -15,7 +15,7 @@
           </elementProp>
           <elementProp name="IAMURL" elementType="Argument">
             <stringProp name="Argument.name">IAMURL</stringProp>
-            <stringProp name="Argument.value">iam.qa.regalpayone.com</stringProp>
+            <stringProp name="Argument.value">iam.qa.regalpayone.com/filexchange/index.html</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
