@@ -10,12 +10,12 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="URL" elementType="Argument">
             <stringProp name="Argument.name">URL</stringProp>
-            <stringProp name="Argument.value">flx.qa.regalpayone.com</stringProp>
+            <stringProp name="Argument.value">qa.api.regalpayone.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="IAMURL" elementType="Argument">
             <stringProp name="Argument.name">IAMURL</stringProp>
-            <stringProp name="Argument.value">ids.qa.regalpayone.com</stringProp>
+            <stringProp name="Argument.value">qa.ids.regalpayone.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
